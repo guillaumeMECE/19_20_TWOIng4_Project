@@ -1,12 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
 import './style.css';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -75,7 +74,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function MiniDrawer() {
     const classes = useStyles();
-    const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
     const handleDrawer = () => {
@@ -88,13 +86,10 @@ export default function MiniDrawer() {
         switch (text) {
             case 'Dashboard':
                 return <DashboardIcon className={classes.icon} />;
-                break;
             case 'Card':
                 return <CreditCardIcon className={classes.icon} />;
-                break;
             case 'Transaction':
                 return <CompareArrowsIcon className={classes.icon} />;
-                break;
 
             default:
                 break;
