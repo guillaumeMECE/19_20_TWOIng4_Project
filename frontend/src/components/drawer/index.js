@@ -2,8 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -17,6 +15,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import CreditCardIcon from '@material-ui/icons/CreditCard';
+import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
+import Box from '@material-ui/core/Box';
 
 const drawerWidth = 240;
 
@@ -81,8 +83,11 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
-    chevron: {
+    icon: {
         color: '#ffffff',
+    },
+    title: {
+        color: '#ffffff'
     }
 }));
 
@@ -95,6 +100,23 @@ export default function MiniDrawer() {
         setOpen(!open);
         console.log('state 3', open);
 
+    };
+
+    const renderMenu = (text) => {
+        switch (text) {
+            case 'Dashboard':
+                return <DashboardIcon className={classes.icon} />;
+                break;
+            case 'Card':
+                return <CreditCardIcon className={classes.icon} />;
+                break;
+            case 'Transaction':
+                return <CompareArrowsIcon className={classes.icon} />;
+                break;
+
+            default:
+                break;
+        }
     };
 
     return (
@@ -117,24 +139,20 @@ export default function MiniDrawer() {
             >
                 <div className={classes.toolbar}>
                     <IconButton onClick={handleDrawer}>
-                        {open === false ? <ChevronRightIcon className={classes.chevron} /> : <ChevronLeftIcon className={classes.chevron} />}
+                        {open === false ? <ChevronRightIcon className={classes.icon} /> : <ChevronLeftIcon className={classes.icon} />}
                     </IconButton>
                 </div>
                 <Divider />
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                    {['Dashboard', 'Card', 'Transaction'].map((text, index) => (
                         <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemIcon>{renderMenu(text)}</ListItemIcon>
+                            <ListItemText primary={
+                                <Typography className={classes.title}>
+                                    <Box letterSpacing={2} m={1}>
+                                        {text}
+                                    </Box>
+                                </Typography>} />
                         </ListItem>
                     ))}
                 </List>
