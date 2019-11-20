@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import './style.css';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -17,6 +18,7 @@ import CreditCardIcon from '@material-ui/icons/CreditCard';
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import Box from '@material-ui/core/Box';
 import Form from '../form/form';
+import GridList from '../gridList';
 
 const drawerWidth = 240;
 
@@ -63,10 +65,17 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         flexGrow: 1,
-        padding: theme.spacing(3),
+        padding: theme.spacing(3)
     },
     icon: {
         color: '#ffffff',
+    },
+    chevron: {
+        color: '#ffffff',
+        backgroundColor: '#3B3F54',
+        borderRadius: '6px',
+        width: '40px',
+        height: '35px'
     },
     title: {
         color: '#ffffff'
@@ -117,7 +126,7 @@ export default function MiniDrawer() {
             >
                 <div className={classes.toolbar}>
                     <IconButton onClick={handleDrawer}>
-                        {open === false ? <ChevronRightIcon className={classes.icon} /> : <ChevronLeftIcon className={classes.icon} />}
+                        {open === false ? <ChevronRightIcon className={classes.chevron} /> : <ChevronLeftIcon className={classes.chevron} />}
                     </IconButton>
                 </div>
 
@@ -141,8 +150,21 @@ export default function MiniDrawer() {
                             <Form>
                                 
                             </Form>
+                <GridList />
+
                 {/* </div> */}
             </main>
         </div>
     );
 }
+
+/* <Box display="flex" p={1} >
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+</Box> */
