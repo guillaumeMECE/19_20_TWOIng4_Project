@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -32,6 +33,20 @@ export default function SimpleBottomNavigation() {
         }
     };
 
+    const renderLink = (text) => {
+        switch (text) {
+            case 'Dashboard':
+                return "/dashboard";
+            case 'Card':
+                return "/err";
+            case 'Transaction':
+                return "/transaction";
+
+            default:
+                return "/";
+        }
+    };
+
     return (
         <BottomNavigation
             value={value}
@@ -42,7 +57,9 @@ export default function SimpleBottomNavigation() {
             className={classes.root}
         >
             {['Dashboard', 'Card', 'Transaction'].map((text, index) => (
-                <BottomNavigationAction label={text} icon={renderMenu(text)}></BottomNavigationAction>
+                <Link to={renderLink(text)} style={{ textDecoration: 'none' }}>
+                    <BottomNavigationAction label={text} icon={renderMenu(text)}></BottomNavigationAction>
+                </Link>
             ))}
         </BottomNavigation>
     );
