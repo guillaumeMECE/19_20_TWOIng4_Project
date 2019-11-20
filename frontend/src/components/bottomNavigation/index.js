@@ -9,7 +9,7 @@ import CreditCardIcon from '@material-ui/icons/CreditCard';
 const useStyles = makeStyles({
     root: {
         width: '100%',
-        position: 'absolute',
+        position: 'sticky',
         bottom: 0,
     },
 });
