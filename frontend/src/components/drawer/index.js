@@ -67,6 +67,13 @@ const useStyles = makeStyles(theme => ({
     icon: {
         color: '#ffffff',
     },
+    chevron: {
+        color: '#ffffff',
+        backgroundColor: '#3B3F54',
+        borderRadius: '6px',
+        width: '40px',
+        height: '35px'
+    },
     title: {
         color: '#ffffff'
     }
@@ -116,7 +123,7 @@ export default function MiniDrawer() {
             >
                 <div className={classes.toolbar}>
                     <IconButton onClick={handleDrawer}>
-                        {open === false ? <ChevronRightIcon className={classes.icon} /> : <ChevronLeftIcon className={classes.icon} />}
+                        {open === false ? <ChevronRightIcon className={classes.chevron} /> : <ChevronLeftIcon className={classes.chevron} />}
                     </IconButton>
                 </div>
 
