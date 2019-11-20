@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import './style.css';
+import Widget from '../widget'
+
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -16,6 +18,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import Box from '@material-ui/core/Box';
+import GridList from '../gridList';
 
 const drawerWidth = 240;
 
@@ -62,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         flexGrow: 1,
-        padding: theme.spacing(3),
+        padding: theme.spacing(3)
     },
     icon: {
         color: '#ffffff',
@@ -143,21 +146,22 @@ export default function MiniDrawer() {
             </Drawer>
             <main className={classes.content}>
 
-                <div className="container">
-                    <Typography paragraph color="primary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-                            facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                            gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-                            donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                            adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-                            Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-                            imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                            arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                            donec massa sapien faucibus et molestie ac.
-                    </Typography>
-                </div>
+                {/* <div className="container"> */}
+                <GridList />
+
+                {/* </div> */}
             </main>
         </div>
     );
 }
+
+/* <Box display="flex" p={1} >
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+<Widget />
+</Box> */
