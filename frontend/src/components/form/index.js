@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import './form.css';
+import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -19,41 +18,41 @@ const useStyles = makeStyles(theme => ({
     width: 200,
     backgroundColor: '#3B3F54',
     borderRadius: '4px',
-    "&$focused": { 
-        color: '#FFFFFF'
-      }
+    "&$focused": {
+      color: '#FFFFFF'
+    }
 
   },
   input: {
-      color: 'white',
-      "&$focused": { 
-        color: '#FFFFFF'
-      }
+    color: 'white',
+    "&$focused": {
+      color: '#FFFFFF'
+    }
   }
 }));
 
 
 const theme = createMuiTheme({
-    overrides: {
-      MuiInputLabel: { // Name of the component ⚛️ / style sheet
-        root: { // Name of the rule
-          color: "orange",
-          "&$focused": { // increase the specificity for the pseudo class
-            color: "blue"
-          }
+  overrides: {
+    MuiInputLabel: { // Name of the component ⚛️ / style sheet
+      root: { // Name of the rule
+        color: "orange",
+        "&$focused": { // increase the specificity for the pseudo class
+          color: "blue"
         }
       }
     }
-  });
+  }
+});
 
 
 export default function LayoutTextFields() {
   const classes = useStyles();
   const defaultProps = {
-      options: motif,
-      getOptionLabel: option => option.tag,
-    };
-  
+    options: motif,
+    getOptionLabel: option => option.tag,
+  };
+
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
@@ -61,9 +60,9 @@ export default function LayoutTextFields() {
 
 
 
-<ThemeProvider theme={theme}>
-      <TextField value="value" label="label" />
-    </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <TextField value="value" label="label" />
+        </ThemeProvider>
 
 
         {/* <TextField
@@ -77,17 +76,17 @@ export default function LayoutTextFields() {
         /> */}
 
         <Autocomplete
-        {...defaultProps}
-        id="tag"
-        className={classes.textField}
-        debug
-        renderInput={params => <TextField {...params} 
-        label="Tag" 
-        margin="normal" 
-        fullWidth         
-        InputProps={{ className: classes.input }}
-        InputLabelProps={{className: classes.input }}/>}
-      />
+          {...defaultProps}
+          id="tag"
+          className={classes.textField}
+          debug
+          renderInput={params => <TextField {...params}
+            label="Tag"
+            margin="normal"
+            fullWidth
+            InputProps={{ className: classes.input }}
+            InputLabelProps={{ className: classes.input }} />}
+        />
 
         <TextField
           id="motif"
@@ -96,21 +95,21 @@ export default function LayoutTextFields() {
           type="text"
           margin="normal"
           InputProps={{ className: classes.input }}
-          InputLabelProps={{className: classes.input }}
+          InputLabelProps={{ className: classes.input }}
 
 
         />
 
-       
+
       </div>
     </form>
   );
 }
 
 const motif = [
-    {tag: 'Loisirs'},
-    {tag: 'Professionnel'},
-    {tag: 'Remboursement'},
+  { tag: 'Loisirs' },
+  { tag: 'Professionnel' },
+  { tag: 'Remboursement' },
 
 ];
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import './style.css';
+import Form from '../../components/form'
 
 
 function Transaction() {
     return (
         <div className="Transaction">
-            Transaction
+            <Form />
         </div>
     );
 }
