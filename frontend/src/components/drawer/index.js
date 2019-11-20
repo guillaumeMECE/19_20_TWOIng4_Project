@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
-import './style.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -17,7 +17,6 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import Box from '@material-ui/core/Box';
-import GridList from '../gridList';
 
 const drawerWidth = 240;
 
@@ -81,7 +80,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -102,6 +101,20 @@ export default function MiniDrawer() {
 
             default:
                 break;
+        }
+    };
+
+    const renderLink = (text) => {
+        switch (text) {
+            case 'Dashboard':
+                return "/dashboard";
+            case 'Card':
+                return "/err";
+            case 'Transaction':
+                return "/transaction";
+
+            default:
+                return "/";
         }
     };
 
@@ -131,36 +144,25 @@ export default function MiniDrawer() {
 
                 <List>
                     {['Dashboard', 'Card', 'Transaction'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{renderMenu(text)}</ListItemIcon>
-                            <ListItemText primary={
-                                <Typography className={classes.title}>
-                                    <Box letterSpacing={2} m={1}>
-                                        {text}
-                                    </Box>
-                                </Typography>} />
-                        </ListItem>
+                        <Link to={renderLink(text)} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button key={text}>
+                                <ListItemIcon>{renderMenu(text)}</ListItemIcon>
+                                <ListItemText primary={
+                                    <Typography className={classes.title}>
+                                        <Box letterSpacing={2} m={1}>
+                                            {text}
+                                        </Box>
+                                    </Typography>
+                                } />
+
+                            </ListItem>
+                        </Link>
                     ))}
                 </List>
             </Drawer>
             <main className={classes.content}>
-
-                {/* <div className="container"> */}
-                <GridList />
-
-                {/* </div> */}
+                {props.child()}
             </main>
         </div>
     );
 }
-
-/* <Box display="flex" p={1} >
-<Widget />
-<Widget />
-<Widget />
-<Widget />
-<Widget />
-<Widget />
-<Widget />
-<Widget />
-</Box> */
