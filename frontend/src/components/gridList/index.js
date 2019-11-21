@@ -5,6 +5,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Widget from '../widget';
 import './style.css';
+import ChartTest from '../chartTest';
 
 const handleWidth = (width) => {
     switch (width) {
@@ -20,15 +21,15 @@ function WidgetGridList(props) {
     const isSmall = handleWidth(width);
     return (
         <div className="root" >
-            <GridList cellHeight={179} className="gridList" cols={isSmall ? 1 : 2}>
-                <GridListTile>
-                    <Widget />
+            <GridList cellHeight={300} className="gridList" cols={isSmall ? 1 : 2}>
+                <GridListTile cols={2}>
+                    <Widget title="Area chart test" child={() => (<ChartTest />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget />
+                    <Widget title="Area chart test 2" child={() => (<ChartTest />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget />
+                    <Widget title="Area chart test 3" child={() => (<ChartTest />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget />

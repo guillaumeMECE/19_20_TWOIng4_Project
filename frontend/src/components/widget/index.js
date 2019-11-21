@@ -17,7 +17,7 @@ export default class Widget extends Component {
 
             <Box className="widget" boxShadow={2}>
                 <Typography component="div">
-                    <Box fontSize="h6.fontSize" m={1}>
+                    <Box letterSpacing={1} fontWeight="fontWeightBold" fontSize="h6.fontSize" m={1}>
                         {this.props.title}
                     </Box>
                 </Typography>
