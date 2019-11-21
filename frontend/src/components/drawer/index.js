@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import './style.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -83,6 +84,9 @@ const useStyles = makeStyles(theme => ({
 export default function MiniDrawer(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    console.log('props.pathname', props.pathname);
+
+
 
     const handleDrawer = () => {
         setOpen(!open);
@@ -118,6 +122,14 @@ export default function MiniDrawer(props) {
         }
     };
 
+    const renderClass = (text) => {
+        let pathname = props.pathname.slice(2); // to remove '/'
+        pathname = props.pathname.slice(1, 2).toUpperCase().concat(pathname);
+        if (text === pathname) {
+            return 'activeLink';
+        }
+    };
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -145,17 +157,20 @@ export default function MiniDrawer(props) {
                 <List>
                     {['Dashboard', 'Card', 'Transaction'].map((text, index) => (
                         <Link to={renderLink(text)} style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <ListItem button key={text}>
-                                <ListItemIcon>{renderMenu(text)}</ListItemIcon>
-                                <ListItemText primary={
-                                    <Typography className={classes.title}>
-                                        <Box letterSpacing={2} m={1}>
-                                            {text}
-                                        </Box>
-                                    </Typography>
-                                } />
+                            <Box className={renderClass(text)} style={{ marginLeft: 10 }}>
 
-                            </ListItem>
+                                <ListItem button key={text}>
+                                    <ListItemIcon>{renderMenu(text)}</ListItemIcon>
+                                    <ListItemText primary={
+                                        <Typography className={classes.title}>
+                                            <Box letterSpacing={2} m={1}>
+                                                {text}
+                                            </Box>
+                                        </Typography>
+                                    } />
+
+                                </ListItem>
+                            </Box>
                         </Link>
                     ))}
                 </List>
@@ -163,6 +178,6 @@ export default function MiniDrawer(props) {
             <main className={classes.content}>
                 {props.child()}
             </main>
-        </div>
+        </div >
     );
 }

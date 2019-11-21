@@ -12,6 +12,7 @@ const useStyles = makeStyles({
         width: '100%',
         position: 'fixed',
         bottom: 0,
+
     },
 });
 
@@ -46,6 +47,14 @@ export default function SimpleBottomNavigation() {
                 return "/";
         }
     };
+
+    // const renderClass = (text) => {
+    //     let pathname = props.pathname.slice(2); // to remove '/'
+    //     pathname = props.pathname.slice(1, 2).toUpperCase().concat(pathname);
+    //     if (text === pathname) {
+    //         return 'activeLink';
+    //     }
+    // };
 
     return (
         <BottomNavigation
