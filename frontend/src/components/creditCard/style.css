@@ -1,0 +1,43 @@
+.CreditCard {
+  position: relative;
+  width: 50%;
+  margin: auto;
+  height: 25%;
+  background: rgb(105, 65, 189);
+  background: linear-gradient(
+    40deg,
+    rgba(105, 65, 189, 1) 0%,
+    rgba(185, 101, 210, 1) 100%
+  );
+  border-radius: 20px;
+}
+.names {
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 10%;
+  padding-top: 5%;
+}
+.expDate {
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+.expDate-props {
+  float: right;
+}
+.expDate-info {
+  float: left;
+}
+.cardNb {
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 10%;
+  padding-bottom: 5%;
+}
