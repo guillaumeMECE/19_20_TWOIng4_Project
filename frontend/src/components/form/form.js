@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './form.css';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
