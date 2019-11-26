@@ -6,6 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import Widget from '../widget';
 import './style.css';
 import ChartTest from '../chartTest';
+import DoughnutTagChart from '../doughnutTagChart/index';
 
 const handleWidth = (width) => {
     switch (width) {
@@ -26,7 +27,7 @@ function WidgetGridList(props) {
                     <Widget title="Area chart test" child={() => (<ChartTest />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Area chart test 2" child={() => (<ChartTest />)} />
+                    <Widget title="Types d'achats" child={() => (<DoughnutTagChart />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Area chart test 3" child={() => (<ChartTest />)} />
