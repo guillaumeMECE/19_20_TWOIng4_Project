@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Grid from '@material-ui/core/Grid';
 import {
-    PieChart, Pie, Sector, Cell, ResponsiveContainer, LabelList
+    PieChart, Pie, Sector, Cell, ResponsiveContainer
 } from 'recharts';
 import './style.css';
 import data from './data.json'
@@ -12,7 +12,7 @@ const renderActiveShape = (props) => {
     const RADIAN = Math.PI / 180;
     const {
         cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
-        fill, payload, percent, value,
+        fill, payload, percent,
     } = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
