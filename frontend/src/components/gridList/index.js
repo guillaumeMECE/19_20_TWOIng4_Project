@@ -7,6 +7,7 @@ import Widget from '../widget';
 import './style.css';
 import ChartTest from '../chartTest';
 import DoughnutTagChart from '../doughnutTagChart/index';
+import AccountStatement from '../accountStatement';
 
 const handleWidth = (width) => {
     switch (width) {
@@ -24,7 +25,7 @@ function WidgetGridList(props) {
         <div className="root" >
             <GridList cellHeight={300} className="gridList" cols={isSmall ? 1 : 2}>
                 <GridListTile cols={2}>
-                    <Widget title="Area chart test" child={() => (<ChartTest />)} />
+                    <Widget title="Suivie du compte" child={() => (<AccountStatement />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Types d'achats" child={() => (<DoughnutTagChart />)} />
