@@ -8,6 +8,7 @@ import './style.css';
 import ChartTest from '../chartTest';
 import DoughnutTagChart from '../doughnutTagChart/index';
 import AccountStatement from '../accountStatement';
+import ProfitAndLoss from '../profitAndLoss';
 
 const handleWidth = (width) => {
     switch (width) {
@@ -34,7 +35,7 @@ function WidgetGridList(props) {
                     <Widget title="Area chart test 3" child={() => (<ChartTest />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget />
+                    <Widget title="Profit & Loss" child={() => (<ProfitAndLoss />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget />
