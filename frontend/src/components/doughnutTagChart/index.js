@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Grid from '@material-ui/core/Grid';
 import {
-    PieChart, Pie, Sector, Cell, ResponsiveContainer
+    PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend
 } from 'recharts';
 import './style.css';
 import data from './data.json'
@@ -75,6 +75,7 @@ export default class DoughnutTagChart extends PureComponent {
                     <div style={{ width: '100%', height: 238 }}>
                         <ResponsiveContainer>
                             <PieChart onMouseEnter={this.onPieEnter}>
+                                <Legend />
                                 <Pie
                                     activeIndex={this.state.activeIndex}
                                     onMouseEnter={this.onPieEnter}
