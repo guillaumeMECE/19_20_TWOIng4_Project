@@ -1,19 +1,24 @@
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const apiRouter = require('./routes/api');
+const cookieParser = require('cookie-parser');
 
-var app = express();
+const app = express();
 
-app.use(logger("dev"));
+app.use(cors());
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ // Middleware
+    extended: true
+  }));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use('/api', apiRouter);
+
+app.use(cookieParser());
 
 module.exports = app;
