@@ -1,7 +1,7 @@
 
 const { Schema, model } = require('mongoose');
 
-const name = 'Question';
+const name = 'Measure';
 
 // TODO: ObjectID check type for userID & lifeTime
 const attributes = {
@@ -23,14 +23,18 @@ const attributes = {
     },
     lifeTime: {
         type: String,
-        required :true
+        required: true
+    },
+    CreatedAt: {
+        type: String,
+        required: true
     },
 };
 
 const options = {};
 
-const QuestionShema = new Schema(attributes, options);
+const MeasureSchema = new Schema(attributes, options);
 
-const QuestionModel = model(name, QuestionShema);
+const MeasureModel = model(name, MeasureSchema);
 
-module.exports = QuestionModel;
+module.exports = MeasureModel;

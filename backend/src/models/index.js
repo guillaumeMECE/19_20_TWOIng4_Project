@@ -3,10 +3,7 @@
 module.exports = {
 
     // Mongoose Model
-    AuthModel: require('./Auth'),
-    TodoModel: require('./Todo'),
-    UserModel: require('./User'),
-    AshtrayModel: require('./Ashtray'),
-    QuestionModel: require('./question'),
-    UserQuestionModel: require('./userQuestion')
+    UserModel: require('./user'),
+    SensorModel: require('./sensor'),
+    MeasureModel: require('./measure'),
 };

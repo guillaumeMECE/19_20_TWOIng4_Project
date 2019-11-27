@@ -3,11 +3,6 @@ const { Schema, model } = require('mongoose');
 const name = 'User';
 
 const attributes = {
-    email: {
-        type: String,
-        unique: true,
-        required: true
-    },
     firstname: {
         type: String,
         required: true
@@ -20,8 +15,8 @@ const attributes = {
         type: String,
         required: true
     },
-    company: {
-        type: String,
+    location: {
+        type: [Number, Number],
         required: true
     },
     CreatedAt: {
@@ -31,12 +26,6 @@ const attributes = {
     UpdatedAt: {
         type: String,
         required: true
-    },
-    gender: {
-        type: String
-    },
-    birthday: {
-        type: String
     }
 };
 
