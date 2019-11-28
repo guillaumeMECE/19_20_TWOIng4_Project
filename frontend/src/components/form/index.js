@@ -4,6 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+//import InputAdornment from '@material-ui/core/InputAdornment';
+
+
+
 
 
 
@@ -11,18 +16,41 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+    '& > *': {
+      width: 200,
+      margin: theme.spacing(3),},
+      padding: 150,
+      startAdornment: 'white',
+
+    '& label.Mui-focused': {
+      color: 'white'
+      },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'white',
+      },  
+    '& .MuiInputAdornment-focused': {
+     color: 'white'
+      }, 
+    '& .MuiInputAdornment-positionStart': {
+       color: 'white'
+       }, 
+         '& MuiTypography-colorTextSecondary': {
+          color: 'white'
+          },
+
+    
   },
+
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
     width: 200,
     backgroundColor: '#3B3F54',
     borderRadius: '4px',
     "&$focused": {
-      color: '#FFFFFF'
-    }
-
+        color: '#FFFFFF'
+      }
+    
   },
+
   input: {
     color: 'white',
     "&$focused": {
@@ -32,26 +60,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiInputLabel: { // Name of the component ⚛️ / style sheet
-      root: { // Name of the rule
-        color: "orange",
-        "&$focused": { // increase the specificity for the pseudo class
-          color: "blue"
-        }
-      }
-    }
-  }
-});
-
-
 export default function LayoutTextFields() {
   const classes = useStyles();
   const defaultProps = {
-    options: motif,
+    options: tag,
     getOptionLabel: option => option.tag,
   };
+
+
+
+
+
+
+
 
 
   return (
@@ -60,20 +81,21 @@ export default function LayoutTextFields() {
 
 
 
-        <ThemeProvider theme={theme}>
-          <TextField value="value" label="label" />
-        </ThemeProvider>
-
-
-        {/* <TextField
+         <TextField
           id="montant"
           label="Montant"
           className={classes.textField}
           type="number"
           margin="normal"
-          InputProps={{ className: classes.input }}
+          InputProps={{ className: classes.input/*, startAdornment: <InputAdornment position="start" color="secondary">€</InputAdornment> */}}
           InputLabelProps={{className: classes.input }}
-        /> */}
+          color="secondary"
+
+          
+          
+
+          
+        />  
 
         <Autocomplete
           {...defaultProps}
@@ -84,9 +106,12 @@ export default function LayoutTextFields() {
             label="Tag"
             margin="normal"
             fullWidth
-            InputProps={{ className: classes.input }}
+            //InputProps={{ className: classes.input }}
+            
             InputLabelProps={{ className: classes.input }} />}
         />
+
+
 
         <TextField
           id="motif"
@@ -96,7 +121,7 @@ export default function LayoutTextFields() {
           margin="normal"
           InputProps={{ className: classes.input }}
           InputLabelProps={{ className: classes.input }}
-
+          
 
         />
 
@@ -106,7 +131,7 @@ export default function LayoutTextFields() {
   );
 }
 
-const motif = [
+const tag = [
   { tag: 'Loisirs' },
   { tag: 'Professionnel' },
   { tag: 'Remboursement' },
