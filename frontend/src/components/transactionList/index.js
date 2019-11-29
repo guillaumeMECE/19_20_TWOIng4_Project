@@ -13,8 +13,9 @@ const useStyles = makeStyles(theme => ({
     root: {
       width: '100%',
       flexWrap: 'wrap',
-      overflow: 'hidden',
-      position: 'relative',
+      overflowY: 'scroll',
+      height:'250px',
+
       backgroundColor: theme.palette.background.paper,
     },
     inline: {
@@ -27,91 +28,37 @@ export default function TransactionList() {
     const classes = useStyles();
 
     return (
-        <List className={classes.root}   style={{ overflow: 'auto'}}>
-        <ListItem alignItems="flex-start">
- 
-            <ListItemText
-              primary="300€"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                  >
-                    Remboursement pulls
-                  </Typography>
-                  {" - Loisirs"}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
+      <div className={classes.root}>
 
-          <Divider variant="middle" component="li" />
-          <ListItem alignItems="flex-start">
+{[{"titre":"300€",'lab1':'Remboursement pulls', 'lab2':'Loisirs'}, {"titre":"1200€",'lab1':'Salaire','lab2':'Professionnel'}, {"titre":"300€",'lab1':'Remboursement','lab2':'Loisirs'},{"titre":"30€",'lab1':'Cadeau','lab2':'Loisirs'}].map((obj, index) => (
+<div>
+<ListItem alignItems="flex-start">
 
-            <ListItemText
-              primary="15€"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                  >
-                    BBQ
-                  </Typography>
-                  {" — Loisirs"}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
+<ListItemText
+  primary={obj.titre}
+  secondary={
+    <React.Fragment>
+      <Typography
+        component="span"
+        variant="body2"
+        className={classes.inline}
+        color="textPrimary"
+      >
+        {obj.lab1}
+      </Typography>
+      {' - '.concat(obj.lab2)}
+    </React.Fragment>
+  }
+/>
+</ListItem>
+      <Divider variant="middle" component="li" />
 
-          <Divider variant="middle" component="li" />
-          <ListItem alignItems="flex-start">
-
-            <ListItemText
-              primary="30€"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                  >
-                    Dejeuner
-                  </Typography>
-                  {" — Professionnel"}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-
-          <Divider variant="middle" component="li" />
-          <ListItem alignItems="flex-start">
-
-          <ListItemText
-              primary="30€"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                  >
-                    Dejeuner
-                  </Typography>
-                  {" — Professionnel"}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
+      </div>
+  ))}
 
 
-        </List>
-      );
-    }
+        
+  </div>
+  
+);
+}
