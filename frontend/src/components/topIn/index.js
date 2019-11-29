@@ -15,14 +15,19 @@ const useStyles = makeStyles(theme => ({
       flexWrap: 'wrap',
       //  overflow: 'hidden',
       // overflowY: 'scroll',
-      position: 'relative',
-      marginBottom: '100px',
+      // position: 'relative',
+      //marginBottom: '100px',
+      overflowY: 'scroll',
+      height:'250px',
       backgroundColor: theme.palette.background.paper,
     },
     inline: {
-      display: 'inline',
+      //display: 'inline',
     },
   }));
+
+
+
 
 
 export default function TopInList() {
@@ -30,7 +35,48 @@ export default function TopInList() {
 
     return (
       <div className={classes.root}>
-        <div style={{ overflowY: 'scroll'}}>
+        
+
+
+
+        {[{"titre":"titre1",'lab1':'hudjf', 'lab2':'caca'}, {"titre":"titre1",'lab1':'hudjf','lab2':'caca'}, {"titre":"titre1",'lab1':'hudjf','lab2':'caca'}].map((obj, index) => (
+   <div >
+   <ListItem alignItems="flex-start">
+
+    <ListItemText
+      primary={obj.titre}
+      secondary={
+        <React.Fragment>
+          <Typography
+            component="span"
+            variant="body2"
+            className={classes.inline}
+            color="textPrimary"
+          >
+            {obj.lab1}
+          </Typography>
+          {' - '.concat(obj.lab2)}
+        </React.Fragment>
+      }
+    />
+  </ListItem>
+          <Divider variant="middle" component="li" />
+
+          </div>
+  ))};
+
+
+        
+        </div>
+        
+      );
+    }
+
+
+
+
+
+    {/*           
         <List >
         <ListItem alignItems="flex-start">
             <ListItemText
@@ -138,9 +184,4 @@ export default function TopInList() {
 
 
 
-        </List>
-        </div>
-        </div>
-        
-      );
-    }
+        </List> */}
