@@ -9,6 +9,9 @@ import ChartTest from '../chartTest';
 import DoughnutTagChart from '../doughnutTagChart/index';
 import AccountStatement from '../accountStatement';
 import ProfitAndLoss from '../profitAndLoss';
+import TransactionList from '../transactionList';
+import TopInList from '../topIn';
+import AmountCutting from '../amountCutting';
 
 const handleWidth = (width) => {
     switch (width) {
@@ -32,16 +35,16 @@ function WidgetGridList(props) {
                     <Widget title="Types d'achats" child={() => (<DoughnutTagChart />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Area chart test 3" child={() => (<ChartTest />)} />
+                    <Widget title="Amount Cutting" child={() => (<AmountCutting />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Profit & Loss" child={() => (<ProfitAndLoss />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget />
+                    <Widget title="Last Transactions" child={() => (<TransactionList />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget />
+                    <Widget title="Top In" child={() => (<TopInList />)} />
                 </GridListTile>
             </GridList>
         </div>
