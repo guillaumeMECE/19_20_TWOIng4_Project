@@ -28,15 +28,16 @@ export default class AccountStatement extends PureComponent {
 
     render() {
         return (
-            <div style={{ width: '100%', height: 250 }}>
+            <div style={{ width: '100%', height: 250, borderRadius: '20px' }}>
                 <ResponsiveContainer>
                     <AreaChart
                         data={data}
                         margin={{
                             top: 10, right: 30, left: 0, bottom: 0,
                         }}
+
                     >
-                        <CartesianGrid strokeDasharray="3 3" />
+                        {/* <CartesianGrid strokeDasharray="1 1" /> */}
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip />
@@ -46,7 +47,7 @@ export default class AccountStatement extends PureComponent {
                                 <stop offset={off} stopColor="#F6B772" stopOpacity={0.9} />
                             </linearGradient>
                         </defs>
-                        <Area type="monotone" dataKey="amount" stroke="#9DA5AC" fill="url(#splitColor)" />
+                        <Area type="monotone" dataKey="amount" stroke="#9DA5AC" fill="url(#splitColor)" isAnimationActive={false} />
                     </AreaChart>
                 </ResponsiveContainer>
             </div>

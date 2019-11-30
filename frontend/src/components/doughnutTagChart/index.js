@@ -70,41 +70,41 @@ export default class DoughnutTagChart extends PureComponent {
 
     render() {
         return (
-            <Grid container spacing={3}>
-                <Grid item xs={8}>
-                    <div style={{ width: '100%', height: 238 }}>
-                        <ResponsiveContainer>
-                            <PieChart onMouseEnter={this.onPieEnter}>
-                                <Legend />
-                                <Pie
-                                    activeIndex={this.state.activeIndex}
-                                    onMouseEnter={this.onPieEnter}
-                                    activeShape={renderActiveShape}
-                                    data={this.fetchData()}
-                                    cx={'45%'}
-                                    innerRadius={60}
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    paddingAngle={5}
-                                    dataKey="value"
-                                >
-                                    {
-                                        data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-                                    }
-                                </Pie>
-                            </PieChart>
-                        </ResponsiveContainer>
-                    </div>
-                </Grid>
-                <Grid item xs={4} style={{ paddingTop: '5%' }}>
-                    {
-                        data.map((entry, index) =>
-                            <div className="lib" key={`lib-${index}`} style={{ backgroundColor: COLORS[index % COLORS.length] }} >
-                                {entry.name}
-                            </div>)
-                    }
-                </Grid>
-            </Grid>
+            // <Grid container spacing={3}>
+            // <Grid item xs={8}>
+            <div style={{ width: '100%', height: 238 }}>
+                <ResponsiveContainer>
+                    <PieChart onMouseEnter={this.onPieEnter}>
+                        <Legend />
+                        <Pie
+                            activeIndex={this.state.activeIndex}
+                            onMouseEnter={this.onPieEnter}
+                            activeShape={renderActiveShape}
+                            data={this.fetchData()}
+                            cx={'45%'}
+                            innerRadius={60}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            paddingAngle={5}
+                            dataKey="value"
+                        >
+                            {
+                                data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+                            }
+                        </Pie>
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
+            // </Grid>
+            //         {/* <Grid item xs={4} style={{ paddingTop: '5%' }}>
+            //             {
+            //                 data.map((entry, index) =>
+            //                     <div className="lib" key={`lib-${index}`} style={{ backgroundColor: COLORS[index % COLORS.length] }} >
+            //                         {entry.name}
+            //                     </div>)
+            //             }
+            //         </Grid> */}
+            // {/* </Grid> */ }
         );
     }
 }
