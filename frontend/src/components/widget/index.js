@@ -15,7 +15,7 @@ export default class Widget extends Component {
 
         return (
 
-            <Box className="widget" boxShadow={2}>
+            <Box className="widget" boxShadow={2} borderRadius={20}>
                 <Typography component="div">
                     <Box letterSpacing={1} fontWeight="fontWeightBold" fontSize="h6.fontSize" m={1}>
                         {this.props.title}

@@ -24,14 +24,14 @@ function WidgetGridList(props) {
     const isSmall = handleWidth(width);
     return (
         <div className="root" >
-            <GridList cellHeight={300} className="gridList" cols={isSmall ? 1 : 2}>
-                <GridListTile cols={2}>
+            <GridList spacing={12} cellHeight={300} className="gridList" cols={isSmall ? 1 : 3}>
+                <GridListTile cols={isSmall ? 1 : 3}>
                     <Widget title="Suivie du compte" child={() => (<AccountStatement />)} />
                 </GridListTile>
-                <GridListTile>
+                <GridListTile cols={1}>
                     <Widget title="Types d'achats" child={() => (<DoughnutTagChart />)} />
                 </GridListTile>
-                <GridListTile>
+                <GridListTile cols={isSmall ? 1 : 2}>
                     <Widget title="Area chart test 3" child={() => (<ChartTest />)} />
                 </GridListTile>
                 <GridListTile>
