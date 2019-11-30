@@ -5,9 +5,9 @@ import CardPreview from '../../components/cardPreview';
 import Grid from '@material-ui/core/Grid';
 
 
-function Transaction() {
+function Admin() {
     return (
-        <div className="Transaction">
+        <div className="Admin">
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={12} md={6} lg={6}>
                     <Form />
@@ -20,4 +20,4 @@ function Transaction() {
     );
 }
 
-export default Transaction;
+export default Admin;
