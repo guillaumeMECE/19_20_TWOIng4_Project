@@ -5,28 +5,20 @@ const name = 'Measure';
 
 // TODO: ObjectID check type for userID & lifeTime
 const attributes = {
-    text: {
+    type: {
         type: String,
         required: true
     },
-    proposal_a: {
+    creationDate: {
         type: String,
         required: true
     },
-    proposal_b: {
-        type: String,
+    sensorID: {
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
-    userID: {
-        type: String,
-        required: true
-    },
-    lifeTime: {
-        type: String,
-        required: true
-    },
-    CreatedAt: {
-        type: String,
+    value: {
+        type: Number,
         required: true
     },
 };

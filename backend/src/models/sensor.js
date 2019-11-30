@@ -3,25 +3,19 @@ const { Schema, model } = require('mongoose');
 
 const name = 'Sensor';
 
-// TODO: ObjectID check type for userID & questionID
 const attributes = {
     location: {
         type: String,
         required: true
     },
     userID: {
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
-    CreatedAt: {
+    CreatedDate: {
         type: String,
         required: true
     },
-    UpdatedAt: {
-        type: String,
-        required: true
-    }
-
 };
 
 const options = {};

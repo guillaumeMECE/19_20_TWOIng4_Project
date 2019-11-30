@@ -3,30 +3,18 @@ const { Schema, model } = require('mongoose');
 const name = 'User';
 
 const attributes = {
-    firstname: {
+    houseSize: {
         type: String,
         required: true
     },
-    lastname: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
+    personInHouse: {
+        type: Number,
         required: true
     },
     location: {
-        type: [Number, Number],
-        required: true
-    },
-    CreatedAt: {
         type: String,
         required: true
     },
-    UpdatedAt: {
-        type: String,
-        required: true
-    }
 };
 
 const options = {};
