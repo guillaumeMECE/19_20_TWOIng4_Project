@@ -9,7 +9,7 @@ const attributes = {
         required: true
     },
     userID: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true
     },
     CreatedDate: {

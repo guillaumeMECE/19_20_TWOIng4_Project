@@ -14,7 +14,7 @@ const attributes = {
         required: true
     },
     sensorID: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true
     },
     value: {
