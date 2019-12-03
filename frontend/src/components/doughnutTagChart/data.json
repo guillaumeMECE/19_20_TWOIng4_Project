@@ -1,0 +1,6 @@
+[
+  { "name": "Loisirs", "value": 400 },
+  { "name": "Professionnel", "value": 50 },
+  { "name": "Remboursement", "value": 130 },
+  { "name": "Restaurant", "value": 300 }
+]

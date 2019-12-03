@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import { withRouter } from 'react-router-dom';
 import Drawer from './components/drawer/index';
