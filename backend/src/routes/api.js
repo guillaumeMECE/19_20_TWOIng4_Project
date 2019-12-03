@@ -22,6 +22,12 @@ const { CreateQuestion, ReadQuestions, ReadQuestion, UpdateQuestion, DeleteQuest
 // USER QUESTION IMPORT
 const { CreateUserQuestion, ReadUserQuestions, ReadUserQuestion, UpdateUserQuestion, DeleteUserQuestion } = require('@controllers');
 
+/**
+ * Measure IMPORT
+ */
+const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, ResetMeasure, UpdateMeasure } = require('@controllers');
+
+
 // MIDDLEWARES
 const { middleware } = require('@middlewares');
 /**

@@ -10,6 +10,14 @@ module.exports = {
     UpdateAshtray: require('./ashtray/Update'),
     DeleteAshtray: require('./ashtray/Delete'),
 
+    // Measure handlers
+    CreateMeasure: require('./measure/Create'),
+    ReadOneMeasure: require('./measure/ReadOne'),
+    ReadMeasure: require('./measure/Read'),
+    ResetMeasure: require('./measure/Reset'),
+    UpdateMeasure: require('./measure/Update'),
+    DeleteMeasure: require('./measure/Delete'),
+
     // auth handlers
     RegisterUser: require('./auth/RegisterUser'),
     LoginUser: require('./auth/LoginUser'),
