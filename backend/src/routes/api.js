@@ -37,6 +37,14 @@ const { middleware } = require('@middlewares');
 router.post('/register', RegisterUser);
 router.post('/login', LoginUser);
 
+// Measure ROUTES
+router.post('/measure', CreateMeasure);
+// router.get('/measure/read/:id', ReadOneAshtray);
+// router.get('/ashtray/read', ReadAshtray);
+// router.put('/ashtray/reset/:id', ResetAshtray);
+// router.patch('/ashtray/update/:id', UpdateAshtray);
+// router.delete('/ashtray/delete/:id', DeleteAshtray);
+
 // TODO ROUTES
 router.post('/ashtray/create', CreateAshtray);
 router.get('/ashtray/read/:id', ReadOneAshtray);

@@ -1,6 +1,6 @@
 const { secureInput, formatChecker } = require('@core');
-const { AshtrayModel } = require('@models');
-const { AshtrayServices } = require('@services');
+const { MeasureModel } = require('@models');
+// const { AshtrayServices } = require('@services');
 
 /**
  * Request structure
@@ -15,17 +15,22 @@ const secure = async (req) => {
 
     const inputs = {};
 
-    if (req.body.userID === undefined || req.body.userID === null) {
-        throw new Error('UserID undefined/null');
+    if (req.body.type === undefined || req.body.type === null) {
+        throw new Error('type undefined/null');
+    } else if (!formatChecker.isType(req.body.type)) {
+        throw new Error('type not valid');
     }
-    inputs.userID = secureInput.sanitizeString(req.body.userID);
+    inputs.type = req.body.type;
 
-    if (req.body.location === undefined || req.body.location === null) {
-        throw new Error('Location undefined/null');
-    } else if (!formatChecker.isLocation(req.body.location)) {
-        throw new Error('Location don\'t follow rules');
+    if (req.body.sensorID === undefined || req.body.sensorID === null) {
+        throw new Error('sensorID undefined/null');
     }
-    inputs.location = req.body.location;
+    inputs.sensorID = req.body.sensorID;
+
+    if (req.body.value === undefined || req.body.value === null) {
+        throw new Error('value undefined/null');
+    }
+    inputs.value = req.body.value;
 
     return inputs;
 };
@@ -35,19 +40,17 @@ const secure = async (req) => {
  */
 const process = async (param) => {
     const inputs = param;
-    inputs.CreatedAt = Date();
-    inputs.UpdatedAt = inputs.CreatedAt;
-    inputs.buttNumber = 0;
+
+    inputs.creationDate = Date();
+
     console.log('inputs: ', inputs);
 
     try {
-        const data = await AshtrayModel.create(inputs);
+        const result = await MeasureModel.create(inputs);
 
-        const token = AshtrayServices.generateToken(data);
-
-        return token;
+        return result;
     } catch (error) {
-        throw new Error('Ashtray can\'t be create'.concat(' > ', error.message));
+        throw new Error('Measure can\'t be create'.concat(' > ', error.message));
     }
 
 };
@@ -55,12 +58,11 @@ const process = async (param) => {
 /**
  * LOGIC :
  */
-const createAshtray = async (req, res) => {
+const createMeasure = async (req, res) => {
     try {
         const inputs = await secure(req);
 
         const data = await process(inputs);
-
 
         res.status(200).json({ data });
 
@@ -70,4 +72,4 @@ const createAshtray = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = createAshtray;
+module.exports = createMeasure;

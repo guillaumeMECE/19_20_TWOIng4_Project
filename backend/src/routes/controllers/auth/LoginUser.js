@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const { AuthModel, UserModel } = require('@models');
 const { formatChecker } = require('@core');
 const { AuthServices } = require('@services');
@@ -49,7 +49,7 @@ const process = async (inputs) => {
             throw new Error('User : Email not find');
         }
 
-        const isGoodPassword = await bcrypt.compare(inputs.password, auth.password);
+        // const isGoodPassword = await bcrypt.compare(inputs.password, auth.password);
         if (!isGoodPassword) {
             throw new Error('Wrong Password');
         }
