@@ -20,7 +20,7 @@ const gradientOffset = () => {
 
 const off = gradientOffset();
 
-export default class AccountStatement extends PureComponent {
+export default class AreaChartComponent extends PureComponent {
 
     fetchData() {
         return data

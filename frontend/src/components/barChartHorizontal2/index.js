@@ -4,7 +4,7 @@ import {
 } from 'recharts';
 import data from './data'
 
-export default class AccountStatement extends PureComponent {
+export default class BarChartHorizontal2 extends PureComponent {
 
     fetchData() {
         return data
@@ -21,8 +21,9 @@ export default class AccountStatement extends PureComponent {
                         <YAxis type="category" dataKey="name" />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="pv" fill="#30C9AC" />
-                        <Bar dataKey="uv" fill="#F6B772" />
+                        <Bar dataKey="5-50" fill="#30C9AC" />
+                        <Bar dataKey="50-100" fill="#F6B772" />
+                        <Bar dataKey="100-+" fill="#" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

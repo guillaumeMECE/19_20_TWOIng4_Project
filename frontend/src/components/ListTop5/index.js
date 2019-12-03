@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 
-export default function TransactionList() {
+export default function ListTop5() {
     const classes = useStyles();
 
     return (

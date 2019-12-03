@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function TopInList() {
+export default function InfiniteList() {
     const classes = useStyles();
 
     return (

@@ -53,7 +53,7 @@ const renderActiveShape = (props) => {
 };
 
 
-export default class DoughnutTagChart extends PureComponent {
+export default class DoughnutChart extends PureComponent {
     state = {
         activeIndex: 0,
     };
