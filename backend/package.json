@@ -51,9 +51,7 @@
     "@root": ".",
     "@controllers": "./src/routes/controllers",
     "@models": "./src/models",
-    "@core": "./src/core",
-    "@services": "./src/services",
-    "@middlewares": "./src/middlewares"
+    "@core": "./src/core"
   },
   "repository": {
     "type": "git",

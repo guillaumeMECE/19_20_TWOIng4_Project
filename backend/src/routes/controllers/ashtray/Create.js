@@ -1,6 +1,6 @@
 const { secureInput, formatChecker } = require('@core');
 const { AshtrayModel } = require('@models');
-const { AshtrayServices } = require('@services');
+// const { AshtrayServices } = require('@services');
 
 /**
  * Request structure
@@ -43,9 +43,9 @@ const process = async (param) => {
     try {
         const data = await AshtrayModel.create(inputs);
 
-        const token = AshtrayServices.generateToken(data);
+        // const token = AshtrayServices.generateToken(data);
 
-        return token;
+        return data;
     } catch (error) {
         throw new Error('Ashtray can\'t be create'.concat(' > ', error.message));
     }

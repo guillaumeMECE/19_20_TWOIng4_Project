@@ -1,5 +1,5 @@
 const { AshtrayModel } = require('@models');
-const { AshtrayServices } = require('@services');
+// const { AshtrayServices } = require('@services');
 /**
  * Request structure
  * req = { body: { } }
@@ -34,9 +34,9 @@ const process = async (params) => {
     try {
         const data = await AshtrayModel.findByIdAndUpdate(inputs.id, inputs).exec();
 
-        const token = AshtrayServices.generateToken(data._id);
+        // const token = AshtrayServices.generateToken(data._id);
 
-        return token;
+        return data;
     } catch (error) {
         throw new Error('Ashtray can\'t be Update'.concat(' > ', error.message));
     }

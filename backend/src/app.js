@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const apiRouter = require('./routes/api');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -19,6 +19,6 @@ app.use(express.json());
 
 app.use('/api', apiRouter);
 
-app.use(cookieParser());
+// app.use(cookieParser());
 
 module.exports = app;
