@@ -18,6 +18,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import Box from '@material-ui/core/Box';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 
 const drawerWidth = 240;
 
@@ -100,8 +101,8 @@ export default function MiniDrawer(props) {
                 return <DashboardIcon className={classes.icon} />;
             case 'Card':
                 return <CreditCardIcon className={classes.icon} />;
-            case 'Transaction':
-                return <CompareArrowsIcon className={classes.icon} />;
+            case 'Admin':
+                return <SupervisorAccountIcon className={classes.icon} />;
 
             default:
                 break;
@@ -114,8 +115,8 @@ export default function MiniDrawer(props) {
                 return "/dashboard";
             case 'Card':
                 return "/err";
-            case 'Transaction':
-                return "/transaction";
+            case 'Admin':
+                return "/admin";
 
             default:
                 return "/";
@@ -155,7 +156,7 @@ export default function MiniDrawer(props) {
                 </div>
 
                 <List>
-                    {['Dashboard', 'Card', 'Transaction'].map((text, index) => (
+                    {['Dashboard', 'Card', 'Admin'].map((text, index) => (
                         <Link to={renderLink(text)} style={{ color: 'inherit', textDecoration: 'none' }}>
                             <Box className={renderClass(text)} style={{ marginLeft: 10 }}>
 

@@ -6,6 +6,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 
 const useStyles = makeStyles({
     root: {
@@ -26,8 +27,8 @@ export default function SimpleBottomNavigation() {
                 return <DashboardIcon />;
             case 'Card':
                 return <CreditCardIcon />;
-            case 'Transaction':
-                return <CompareArrowsIcon />;
+            case 'Admin':
+                return <SupervisorAccountIcon />;
 
             default:
                 break;
@@ -40,8 +41,8 @@ export default function SimpleBottomNavigation() {
                 return "/dashboard";
             case 'Card':
                 return "/err";
-            case 'Transaction':
-                return "/transaction";
+            case 'Admin':
+                return "/admin";
 
             default:
                 return "/";
@@ -65,7 +66,7 @@ export default function SimpleBottomNavigation() {
             showLabels
             className={classes.root}
         >
-            {['Dashboard', 'Card', 'Transaction'].map((text, index) => (
+            {['Dashboard', 'Card', 'Admin'].map((text, index) => (
                 <Link to={renderLink(text)} style={{ textDecoration: 'none' }}>
                     <BottomNavigationAction label={text} icon={renderMenu(text)}></BottomNavigationAction>
                 </Link>
