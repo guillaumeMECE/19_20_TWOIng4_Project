@@ -14,13 +14,13 @@ const router = Router();
 // const { ReadAshtray, ReadOneAshtray, CreateAshtray, DeleteAshtray, ResetAshtray, UpdateAshtray } = require('@controllers');
 
 // AUTH IMPORT
-const { RegisterUser, LoginUser } = require('@controllers');
+// const { RegisterUser, LoginUser } = require('@controllers');
 
 // QUESTION IMPORT
-const { CreateQuestion, ReadQuestions, ReadQuestion, UpdateQuestion, DeleteQuestion } = require('@controllers');
+// const { CreateQuestion, ReadQuestions, ReadQuestion, UpdateQuestion, DeleteQuestion } = require('@controllers');
 
 // USER QUESTION IMPORT
-const { CreateUserQuestion, ReadUserQuestions, ReadUserQuestion, UpdateUserQuestion, DeleteUserQuestion } = require('@controllers');
+// const { CreateUserQuestion, ReadUserQuestions, ReadUserQuestion, UpdateUserQuestion, DeleteUserQuestion } = require('@controllers');
 
 /**
  * Measure IMPORT
@@ -29,13 +29,13 @@ const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, UpdateMeasure
 
 
 // MIDDLEWARES
-const { middleware } = require('@middlewares');
+// const { middleware } = require('@middlewares');
 /**
  * Routes
  */
 // AUTH ROUTES
-router.post('/register', RegisterUser);
-router.post('/login', LoginUser);
+// router.post('/register', RegisterUser);
+// router.post('/login', LoginUser);
 
 // Measure ROUTES
 router.post('/measure', CreateMeasure);
@@ -53,9 +53,5 @@ router.delete('/measure/:id', DeleteMeasure);
 // router.delete('/ashtray/delete/:id', DeleteAshtray);
 
 // QUESTION ROUTES 
-router.post('/question/add', middleware, CreateQuestion);
-router.get('/question/read', middleware, ReadQuestions);
-router.get('/question/read/:id', middleware, ReadQuestion);
-router.patch('/question/update/:id', middleware, UpdateQuestion);
-router.delete('/question/delete/:id', middleware, DeleteQuestion);
+// router.post('/question/add', Crearsid', middleware, DeleteQuestion);
 module.exports = router;

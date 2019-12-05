@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { MeasureModel } = require('@models');
+=======
+const { AshtrayModel } = require('@models');
+>>>>>>> master
 // const { AshtrayServices } = require('@services');
 /**
  * Request structure
