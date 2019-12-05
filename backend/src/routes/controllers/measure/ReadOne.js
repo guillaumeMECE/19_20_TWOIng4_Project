@@ -1,4 +1,4 @@
-const { AshtrayModel } = require('@models');
+const { MeasureModel } = require('@models');
 /**
  * Request structure
  * req = { body: { } }
@@ -24,10 +24,10 @@ const secure = async (req) => {
  */
 const process = async (params) => {
     try {
-        const data = await AshtrayModel.findById(params.id).exec();
+        const data = await MeasureModel.findById(params.id).exec();
         return data;
     } catch (error) {
-        throw new Error('Ashtray can\'t be Read'.concat(' > ', error.message));
+        throw new Error('Measure can\'t be Read'.concat(' > ', error.message));
     }
 };
 

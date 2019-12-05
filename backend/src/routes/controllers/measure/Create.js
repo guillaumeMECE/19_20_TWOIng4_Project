@@ -1,6 +1,5 @@
-const { secureInput, formatChecker } = require('@core');
+const { formatChecker } = require('@core');
 const { MeasureModel } = require('@models');
-// const { AshtrayServices } = require('@services');
 
 /**
  * Request structure
@@ -47,6 +46,7 @@ const process = async (param) => {
 
     try {
         const result = await MeasureModel.create(inputs);
+        console.log('result: ', result);
 
         return result;
     } catch (error) {

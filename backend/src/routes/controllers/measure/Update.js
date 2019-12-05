@@ -1,5 +1,5 @@
-const { AshtrayModel } = require('@models');
-const { AshtrayServices } = require('@services');
+const { MeasureModel } = require('@models');
+// const { AshtrayServices } = require('@services');
 /**
  * Request structure
  * req = { body: { } }
@@ -17,10 +17,10 @@ const secure = async (req) => {
     }
     inputs.id = req.params.id;
 
-    if (req.body.buttNumber === undefined || req.body.buttNumber === null) {
+    if (req.body.value === undefined || req.body.value === null) {
         throw new Error('buttNumber undefined/null');
     }
-    inputs.buttNumber = req.body.buttNumber;
+    inputs.value = req.body.value;
 
     return inputs;
 };
@@ -30,15 +30,12 @@ const secure = async (req) => {
  */
 const process = async (params) => {
     const inputs = params;
-    inputs.UpdatedAt = Date();
     try {
-        const data = await AshtrayModel.findByIdAndUpdate(inputs.id, inputs).exec();
+        const data = await MeasureModel.findByIdAndUpdate(inputs.id, inputs).exec();
 
-        const token = AshtrayServices.generateToken(data._id);
-
-        return token;
+        return data;
     } catch (error) {
-        throw new Error('Ashtray can\'t be Update'.concat(' > ', error.message));
+        throw new Error('Measure can\'t be Update'.concat(' > ', error.message));
     }
 };
 

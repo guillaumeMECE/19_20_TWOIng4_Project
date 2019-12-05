@@ -6,7 +6,6 @@ module.exports = {
     CreateAshtray: require('./ashtray/Create'),
     ReadOneAshtray: require('./ashtray/ReadOne'),
     ReadAshtray: require('./ashtray/Read'),
-    ResetAshtray: require('./ashtray/Reset'),
     UpdateAshtray: require('./ashtray/Update'),
     DeleteAshtray: require('./ashtray/Delete'),
 
@@ -14,7 +13,6 @@ module.exports = {
     CreateMeasure: require('./measure/Create'),
     ReadOneMeasure: require('./measure/ReadOne'),
     ReadMeasure: require('./measure/Read'),
-    ResetMeasure: require('./measure/Reset'),
     UpdateMeasure: require('./measure/Update'),
     DeleteMeasure: require('./measure/Delete'),
 
