@@ -1,7 +1,7 @@
 
 const { Schema, model } = require('mongoose');
 
-const name = 'measure';
+const name = 'measures';
 
 const attributes = {
     type: {

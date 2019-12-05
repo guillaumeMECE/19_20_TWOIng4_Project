@@ -3,7 +3,7 @@
 module.exports = {
 
     // Mongoose Model
-    UserModel: require('./user'),
-    SensorModel: require('./sensor'),
+    UserModel: require('./users'),
+    SensorModel: require('./sensors'),
     MeasureModel: require('./measures'),
 };

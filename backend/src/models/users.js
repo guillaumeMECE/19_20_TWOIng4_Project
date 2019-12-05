@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const name = 'user';
+const name = 'users';
 
 const attributes = {
     houseSize: {
