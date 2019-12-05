@@ -2,19 +2,10 @@
 
 module.exports = {
 
-    // Ashtray handlers
-    // CreateAshtray: require('./ashtray/Create'),
-    // ReadOneAshtray: require('./ashtray/ReadOne'),
-    // ReadAshtray: require('./ashtray/Read'),
-    // ResetAshtray: require('./ashtray/Reset'),
-    // UpdateAshtray: require('./ashtray/Update'),
-    // DeleteAshtray: require('./ashtray/Delete'),
-
     // Measure handlers
     CreateMeasure: require('./measure/Create'),
     ReadOneMeasure: require('./measure/ReadOne'),
     ReadMeasure: require('./measure/Read'),
-    ResetMeasure: require('./measure/Reset'),
     UpdateMeasure: require('./measure/Update'),
     DeleteMeasure: require('./measure/Delete'),
 
@@ -38,4 +29,10 @@ module.exports = {
 
     // user question handlers
     // CreateUserQrsuestion: require('./user_question/Delete'),
+    // Sensor handlers
+    CreateSensor: require('./sensor/Create'),
+    ReadOneSensor: require('./sensor/ReadOne'),
+    ReadSensor: require('./sensor/Read'),
+    UpdateSensor: require('./sensor/Update'),
+    DeleteSensor: require('./sensor/Delete'),
 };

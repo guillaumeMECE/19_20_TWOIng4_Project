@@ -1,7 +1,7 @@
 
 const { Schema, model } = require('mongoose');
 
-const name = 'Sensor';
+const name = 'sensors';
 
 const attributes = {
     location: {
@@ -12,7 +12,7 @@ const attributes = {
         type: Schema.Types.ObjectId,
         required: true
     },
-    CreatedDate: {
+    creationDate: {
         type: String,
         required: true
     },

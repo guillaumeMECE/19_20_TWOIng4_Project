@@ -1,4 +1,7 @@
-const { AshtrayModel } = require('@models');
+const { SensorModel } = require('@models');
+const { formatChecker } = require('@core');
+
+// const { AshtrayServices } = require('@services');
 /**
  * Request structure
  * req = { body: { } }
@@ -16,6 +19,13 @@ const secure = async (req) => {
     }
     inputs.id = req.params.id;
 
+    if (req.body.location === undefined || req.body.location === null) {
+        throw new Error('Location undefined/null');
+    } else if (!formatChecker.isLocation(req.body.location)) {
+        throw new Error('location not valid');
+    }
+    inputs.location = req.body.location;
+
     return inputs;
 };
 
@@ -23,18 +33,21 @@ const secure = async (req) => {
  * PROCESS :
  */
 const process = async (params) => {
+    const inputs = params;
+
     try {
-        const data = await AshtrayModel.findById(params.id).exec();
+        const data = await SensorModel.findByIdAndUpdate(inputs.id, inputs).exec();
+
         return data;
     } catch (error) {
-        throw new Error('Ashtray can\'t be Read'.concat(' > ', error.message));
+        throw new Error('Sensor can\'t be Update'.concat(' > ', error.message));
     }
 };
 
 /**
  * LOGIC :
  */
-const readOne = async (req, res) => {
+const updateSensor = async (req, res) => {
     try {
         const inputs = await secure(req);
 
@@ -47,4 +60,4 @@ const readOne = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = readOne;
+module.exports = updateSensor;

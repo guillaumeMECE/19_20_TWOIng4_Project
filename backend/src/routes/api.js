@@ -10,33 +10,23 @@ const router = Router();
 /**
  * Controllers imports
  */
-// Ashtray IMPORT
-// const { ReadAshtray, ReadOneAshtray, CreateAshtray, DeleteAshtray, ResetAshtray, UpdateAshtray } = require('@controllers');
 
-// AUTH IMPORT
-// const { RegisterUser, LoginUser } = require('@controllers');
+// MEASURE IMPORT
+const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, UpdateMeasure } = require('@controllers');
 
-// QUESTION IMPORT
-// const { CreateQuestion, ReadQuestions, ReadQuestion, UpdateQuestion, DeleteQuestion } = require('@controllers');
-
-// USER QUESTION IMPORT
-// const { CreateUserQuestion, ReadUserQuestions, ReadUserQuestion, UpdateUserQuestion, DeleteUserQuestion } = require('@controllers');
+// SENSOR IMPORT
+const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor } = require('@controllers');
 
 /**
- * Measure IMPORT
+ * MIDDLEWARES
  */
 const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, ResetMeasure, UpdateMeasure } = require('@controllers');
 const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser} = require('@controllers');
 
 
-// MIDDLEWARES
-// const { middleware } = require('@middlewares');
 /**
  * Routes
  */
-// AUTH ROUTES
-// router.post('/register', RegisterUser);
-// router.post('/login', LoginUser);
 
 // Measure ROUTES
 router.post('/measure', CreateMeasure);
@@ -64,4 +54,16 @@ router.delete('/users/:id', DeleteUser);
 
 // QUESTION ROUTES 
 // router.post('/question/add', Crearsid', middleware, DeleteQuestion);
+router.get('/measure/:id', ReadOneMeasure);
+router.get('/measure', ReadMeasure);
+router.patch('/measure/:id', UpdateMeasure);
+router.delete('/measure/:id', DeleteMeasure);
+
+// Sensor ROUTES
+router.post('/sensor', CreateSensor);
+router.get('/sensor/:id', ReadOneSensor);
+router.get('/sensor', ReadSensor);
+router.patch('/sensor/:id', UpdateSensor);
+router.delete('/sensor/:id', DeleteSensor);
+
 module.exports = router;

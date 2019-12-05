@@ -1,9 +1,8 @@
 
 const { Schema, model } = require('mongoose');
 
-const name = 'Measure';
+const name = 'measures';
 
-// TODO: ObjectID check type for userID & lifeTime
 const attributes = {
     type: {
         type: String,

@@ -1,4 +1,4 @@
-const { AshtrayModel } = require('@models');
+const { SensorModel } = require('@models');
 
 /**
  * Request structure
@@ -23,17 +23,18 @@ const secure = async (req) => {
  */
 const process = async (inputs) => {
     try {
-        const data = await AshtrayModel.findByIdAndRemove(inputs.id);
+        const data = await SensorModel.findByIdAndRemove(inputs.id);
+
         return data;
     } catch (error) {
-        throw new Error('Ashtray can\'t be delete'.concat(' > ', error.message));
+        throw new Error('Sensor can\'t be delete'.concat(' > ', error.message));
     }
 };
 
 /**
  * LOGIC :
  */
-const deleteAshtray = async (req, res) => {
+const deleteSensor = async (req, res) => {
     try {
         const inputs = await secure(req);
 
@@ -46,4 +47,4 @@ const deleteAshtray = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = deleteAshtray;
+module.exports = deleteSensor;

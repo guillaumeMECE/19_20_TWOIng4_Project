@@ -1,6 +1,5 @@
-const { secureInput, formatChecker } = require('@core');
-const { AshtrayModel } = require('@models');
-// const { AshtrayServices } = require('@services');
+const { formatChecker } = require('@core');
+const { SensorModel } = require('@models');
 
 /**
  * Request structure
@@ -15,17 +14,17 @@ const secure = async (req) => {
 
     const inputs = {};
 
-    if (req.body.userID === undefined || req.body.userID === null) {
-        throw new Error('UserID undefined/null');
-    }
-    inputs.userID = secureInput.sanitizeString(req.body.userID);
-
     if (req.body.location === undefined || req.body.location === null) {
-        throw new Error('Location undefined/null');
+        throw new Error('location undefined/null');
     } else if (!formatChecker.isLocation(req.body.location)) {
-        throw new Error('Location don\'t follow rules');
+        throw new Error('location not valid');
     }
     inputs.location = req.body.location;
+
+    if (req.body.userID === undefined || req.body.userID === null) {
+        throw new Error('userID undefined/null');
+    }
+    inputs.userID = req.body.userID;
 
     return inputs;
 };
@@ -35,19 +34,17 @@ const secure = async (req) => {
  */
 const process = async (param) => {
     const inputs = param;
-    inputs.CreatedAt = Date();
-    inputs.UpdatedAt = inputs.CreatedAt;
-    inputs.buttNumber = 0;
+
+    inputs.creationDate = Date();
+
     console.log('inputs: ', inputs);
 
     try {
-        const data = await AshtrayModel.create(inputs);
+        const result = await SensorModel.create(inputs);
 
-        // const token = AshtrayServices.generateToken(data);
-
-        return data;
+        return result;
     } catch (error) {
-        throw new Error('Ashtray can\'t be create'.concat(' > ', error.message));
+        throw new Error('Sensor can\'t be create'.concat(' > ', error.message));
     }
 
 };
@@ -55,12 +52,11 @@ const process = async (param) => {
 /**
  * LOGIC :
  */
-const createAshtray = async (req, res) => {
+const createSensor = async (req, res) => {
     try {
         const inputs = await secure(req);
 
         const data = await process(inputs);
-
 
         res.status(200).json({ data });
 
@@ -70,4 +66,4 @@ const createAshtray = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = createAshtray;
+module.exports = createSensor;
