@@ -12,7 +12,7 @@ const attributes = {
         type: Schema.Types.ObjectId,
         required: true
     },
-    CreatedDate: {
+    creationDate: {
         type: String,
         required: true
     },
