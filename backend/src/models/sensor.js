@@ -1,7 +1,7 @@
 
 const { Schema, model } = require('mongoose');
 
-const name = 'Sensor';
+const name = 'sensor';
 
 const attributes = {
     location: {
