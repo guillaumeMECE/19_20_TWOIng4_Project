@@ -1,5 +1,4 @@
-const { MeasureModel } = require('@models');
-// const { AshtrayServices } = require('@services');
+const { SensorModel } = require('@models');
 /**
  * Request structure
  * req = { body: { } }
@@ -17,11 +16,6 @@ const secure = async (req) => {
     }
     inputs.id = req.params.id;
 
-    if (req.body.value === undefined || req.body.value === null) {
-        throw new Error('buttNumber undefined/null');
-    }
-    inputs.value = req.body.value;
-
     return inputs;
 };
 
@@ -29,20 +23,18 @@ const secure = async (req) => {
  * PROCESS :
  */
 const process = async (params) => {
-    const inputs = params;
     try {
-        const data = await MeasureModel.findByIdAndUpdate(inputs.id, inputs).exec();
-
+        const data = await SensorModel.findById(params.id).exec();
         return data;
     } catch (error) {
-        throw new Error('Measure can\'t be Update'.concat(' > ', error.message));
+        throw new Error('Sensor can\'t be Read'.concat(' > ', error.message));
     }
 };
 
 /**
  * LOGIC :
  */
-const updateMeasure = async (req, res) => {
+const readOneSensor = async (req, res) => {
     try {
         const inputs = await secure(req);
 
@@ -55,4 +47,4 @@ const updateMeasure = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = updateMeasure;
+module.exports = readOneSensor;

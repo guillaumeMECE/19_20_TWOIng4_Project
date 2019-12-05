@@ -1,4 +1,4 @@
-const { MeasureModel } = require('@models');
+const { SensorModel } = require('@models');
 /**
  * Request structure
  * req = { body: { } }
@@ -11,11 +11,6 @@ const { MeasureModel } = require('@models');
 const secure = async (req) => {
     const inputs = {};
 
-    if (req.params.id === undefined || req.params.id === null) {
-        throw new Error('ID undefined/null');
-    }
-    inputs.id = req.params.id;
-
     return inputs;
 };
 
@@ -24,27 +19,28 @@ const secure = async (req) => {
  */
 const process = async (params) => {
     try {
-        const data = await MeasureModel.findById(params.id).exec();
+        const data = await SensorModel.find().exec();
+
         return data;
     } catch (error) {
-        throw new Error('Measure can\'t be Read'.concat(' > ', error.message));
+        throw new Error('Sensor can\'t be Read'.concat(' > ', error.message));
     }
 };
 
 /**
  * LOGIC :
  */
-const readOneMeasure = async (req, res) => {
+const readSensor = async (req, res) => {
     try {
         const inputs = await secure(req);
 
         const data = await process(inputs);
 
-        res.status(200).json(data);
+        res.status(200).json({ data });
     } catch (error) {
         console.log('ERROR MESSAGE :', error.message);
         console.log('ERROR :', error);
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = readOneMeasure;
+module.exports = readSensor;

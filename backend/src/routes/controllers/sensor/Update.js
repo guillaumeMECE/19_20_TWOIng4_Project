@@ -1,4 +1,6 @@
-const { MeasureModel } = require('@models');
+const { SensorModel } = require('@models');
+const { formatChecker } = require('@core');
+
 // const { AshtrayServices } = require('@services');
 /**
  * Request structure
@@ -17,10 +19,12 @@ const secure = async (req) => {
     }
     inputs.id = req.params.id;
 
-    if (req.body.value === undefined || req.body.value === null) {
-        throw new Error('buttNumber undefined/null');
+    if (req.body.location === undefined || req.body.location === null) {
+        throw new Error('Location undefined/null');
+    } else if (!formatChecker.isLocation(req.body.location)) {
+        throw new Error('location not valid');
     }
-    inputs.value = req.body.value;
+    inputs.location = req.body.location;
 
     return inputs;
 };
@@ -30,19 +34,20 @@ const secure = async (req) => {
  */
 const process = async (params) => {
     const inputs = params;
+
     try {
-        const data = await MeasureModel.findByIdAndUpdate(inputs.id, inputs).exec();
+        const data = await SensorModel.findByIdAndUpdate(inputs.id, inputs).exec();
 
         return data;
     } catch (error) {
-        throw new Error('Measure can\'t be Update'.concat(' > ', error.message));
+        throw new Error('Sensor can\'t be Update'.concat(' > ', error.message));
     }
 };
 
 /**
  * LOGIC :
  */
-const updateMeasure = async (req, res) => {
+const updateSensor = async (req, res) => {
     try {
         const inputs = await secure(req);
 
@@ -55,4 +60,4 @@ const updateMeasure = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = updateMeasure;
+module.exports = updateSensor;
