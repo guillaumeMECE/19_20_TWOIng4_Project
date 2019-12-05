@@ -26,6 +26,7 @@ const router = Router();
  * Measure IMPORT
  */
 const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, ResetMeasure, UpdateMeasure } = require('@controllers');
+const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser} = require('@controllers');
 
 
 // MIDDLEWARES
@@ -44,6 +45,14 @@ router.post('/measure', CreateMeasure);
 // router.put('/ashtray/reset/:id', ResetAshtray);
 // router.patch('/ashtray/update/:id', UpdateAshtray);
 // router.delete('/ashtray/delete/:id', DeleteAshtray);
+
+// User ROUTES
+router.post('/users', CreateUser);
+router.get('/users/:id', ReadOneUser);
+router.get('/users', ReadUser);
+router.patch('/users/:id', UpdateUser);
+router.delete('/users/:id', DeleteUser);
+
 
 // TODO ROUTES
 // router.post('/ashtray/create', CreateAshtray);

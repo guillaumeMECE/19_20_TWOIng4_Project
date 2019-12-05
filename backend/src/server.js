@@ -14,7 +14,7 @@ const app = require('./app');
 
 const port = process.env.PORT || 3030;
 const mongoDbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
-const mongoDbDatabase = process.env.MONGODB_DATABASE || 'cendrio';
+const mongoDbDatabase = process.env.MONGODB_DATABASE || 'dashboardProject';
 
 /**
  * Connect to MongoDB database.

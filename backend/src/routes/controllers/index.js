@@ -18,6 +18,13 @@ module.exports = {
     UpdateMeasure: require('./measure/Update'),
     DeleteMeasure: require('./measure/Delete'),
 
+    // User handlers
+    CreateUser: require('./user/Create'),
+    ReadOneUser: require('./user/ReadOne'),
+    ReadUser: require('./user/Read'),
+    UpdateUser: require('./user/Update'),
+    DeleteUser: require('./user/Delete'),
+
     // auth handlers
     // RegisterUser: require('./auth/RegisterUser'),
     // LoginUser: require('./auth/LoginUser'),
