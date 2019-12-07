@@ -28,7 +28,7 @@ const process = async (param) => {
         // eslint-disable
         for (let index = 0; index < res.length; index++) {
             // eslint-disable-next-line no-await-in-loop
-            res[index].sensors = await SensorModel.find({ 'userID': res[index]._id }).select({ 'location': true }).exec();
+            res[index].sensors = await SensorModel.find({ 'userID': res[index]._id }).count().exec();
             // console.log('res[index].sensors: ', res[index].sensors);
         }
         console.log('result: ', res);
