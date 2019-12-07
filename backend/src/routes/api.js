@@ -17,6 +17,9 @@ const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, UpdateMeasure
 // SENSOR IMPORT
 const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor, ReadMeasuresSensor } = require('@controllers');
 
+// KPI
+const { SensorsByLocation } = require('@controllers');
+
 /**
  * MIDDLEWARES
  */
@@ -50,5 +53,8 @@ router.get('/sensors', ReadSensor);
 router.get('/sensors/:id/measures', ReadMeasuresSensor);
 router.patch('/sensors/:id', UpdateSensor);
 router.delete('/sensors/:id', DeleteSensor);
+
+// KPI
+router.get('/sensorsbylocation', SensorsByLocation);
 
 module.exports = router;

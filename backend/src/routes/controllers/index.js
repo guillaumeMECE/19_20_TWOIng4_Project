@@ -24,4 +24,7 @@ module.exports = {
     ReadMeasuresSensor: require('./sensor/ReadMeasure'),
     UpdateSensor: require('./sensor/Update'),
     DeleteSensor: require('./sensor/Delete'),
+
+    // KPI
+    SensorsByLocation: require('./kpi/sensorsByLocation'),
 };
