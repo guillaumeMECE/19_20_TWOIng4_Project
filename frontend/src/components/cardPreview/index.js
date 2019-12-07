@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './style.css';
 
-import Widget from '../widget';
-import CreditCard from '../creditCard';
+import TreeView from '../treeView';
 
 export default class CardPreview extends Component {
     constructor(props) {
@@ -16,8 +15,7 @@ export default class CardPreview extends Component {
 
         return (
             <div className="CardPreview">
-                <CreditCard />
-                <Widget />
+                <TreeView />
             </div>
         );
     }

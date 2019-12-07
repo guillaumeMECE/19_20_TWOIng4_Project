@@ -15,13 +15,12 @@ const router = Router();
 const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, UpdateMeasure } = require('@controllers');
 
 // SENSOR IMPORT
-const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor } = require('@controllers');
+const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor, ReadMeasuresSensor } = require('@controllers');
 
 /**
  * MIDDLEWARES
  */
-const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, ResetMeasure, UpdateMeasure } = require('@controllers');
-const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser} = require('@controllers');
+const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser, ReadSensorsUser } = require('@controllers');
 
 
 /**
@@ -29,41 +28,27 @@ const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser} = require('@c
  */
 
 // Measure ROUTES
-router.post('/measure', CreateMeasure);
-// router.get('/measure/read/:id', ReadOneAshtray);
-// router.get('/ashtray/read', ReadAshtray);
-// router.put('/ashtray/reset/:id', ResetAshtray);
-// router.patch('/ashtray/update/:id', UpdateAshtray);
-// router.delete('/ashtray/delete/:id', DeleteAshtray);
+router.post('/measures', CreateMeasure);
+router.get('/measures/:id', ReadOneMeasure);
+router.get('/measures', ReadMeasure);
+router.patch('/measures/:id', UpdateMeasure);
+router.delete('/measures/:id', DeleteMeasure);
 
 // User ROUTES
 router.post('/users', CreateUser);
 router.get('/users/:id', ReadOneUser);
 router.get('/users', ReadUser);
+router.get('/users/:id/sensors', ReadSensorsUser);
 router.patch('/users/:id', UpdateUser);
 router.delete('/users/:id', DeleteUser);
 
 
-// TODO ROUTES
-// router.post('/ashtray/create', CreateAshtray);
-// router.get('/ashtray/read/:id', ReadOneAshtray);
-// router.get('/ashtray/read', ReadAshtray);
-// router.put('/ashtray/reset/:id', ResetAshtray);
-// router.patch('/ashtray/update/:id', UpdateAshtray);
-// router.delete('/ashtray/delete/:id', DeleteAshtray);
-
-// QUESTION ROUTES 
-// router.post('/question/add', Crearsid', middleware, DeleteQuestion);
-router.get('/measure/:id', ReadOneMeasure);
-router.get('/measure', ReadMeasure);
-router.patch('/measure/:id', UpdateMeasure);
-router.delete('/measure/:id', DeleteMeasure);
-
 // Sensor ROUTES
-router.post('/sensor', CreateSensor);
-router.get('/sensor/:id', ReadOneSensor);
-router.get('/sensor', ReadSensor);
-router.patch('/sensor/:id', UpdateSensor);
-router.delete('/sensor/:id', DeleteSensor);
+router.post('/sensors', CreateSensor);
+router.get('/sensors/:id', ReadOneSensor);
+router.get('/sensors', ReadSensor);
+router.get('/sensors/:id/measures', ReadMeasuresSensor);
+router.patch('/sensors/:id', UpdateSensor);
+router.delete('/sensors/:id', DeleteSensor);
 
 module.exports = router;
