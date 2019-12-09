@@ -32,7 +32,7 @@ function WidgetGridList(props) {
                     <Widget title="Suivie du compte" child={() => (<AreaChart />)} />
                 </GridListTile>
                 <GridListTile cols={1}>
-                    <Widget title="Types d'achats" child={() => (<DoughnutChart />)} />
+                    <Widget title="AirPollution By Country" child={() => (<DoughnutChart />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Amount Cutting" child={() => (<BarChartHorizontal2 />)} />
