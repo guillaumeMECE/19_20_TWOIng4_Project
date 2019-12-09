@@ -20,8 +20,9 @@ const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor } = 
 /**
  * MIDDLEWARES
  */
-const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, ResetMeasure, UpdateMeasure } = require('@controllers');
 const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser} = require('@controllers');
+
+const { TempByLocation } = require('@controllers');
 
 
 /**
@@ -65,5 +66,7 @@ router.get('/sensor/:id', ReadOneSensor);
 router.get('/sensor', ReadSensor);
 router.patch('/sensor/:id', UpdateSensor);
 router.delete('/sensor/:id', DeleteSensor);
+
+router.get('/kpi/tempByLocation', TempByLocation);
 
 module.exports = router;
