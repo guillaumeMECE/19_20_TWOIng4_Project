@@ -10,7 +10,7 @@ import data from './data.json';
 const API_URL = 'http://localhost:3030/api';
 
 
-const COLORS = ['#B965D2', '#30C9AC', '#33AEEF', '#F6B772', '#32bbb5', '#30c9ac'];
+const COLORS = ['#3a82d9', '#3890d0', '#369ec8', '#34adbe', '#32bbb5', '#30c9ac'];
 
 const renderActiveShape = (props) => {
     const RADIAN = Math.PI / 180;
@@ -68,14 +68,9 @@ export default class DoughnutChart extends PureComponent {
 
     async fetchData() {
         try {
-            const { data } = await axios.get(`${API_URL}/airpollutionbylocation`);
-
-            console.log('data piechart', data.data);
-            data.data.forEach((element, id) => {
-                element.fill = COLORS[id % COLORS.length];
-            });
-
+            const { data } = await axios.get(`${API_URL}/airpollutionbylocation`)
             this.setState({ Data: data.data });
+            console.log('data piechart', data.data);
 
         } catch (error) {
             console.log('ERROR MESSAGE :', error.message);
