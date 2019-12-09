@@ -1,28 +1,45 @@
 import React, { PureComponent } from 'react';
+import axios from 'axios';
 import {
     BarChart, Bar, XAxis, Legend, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
 import data from './data'
 
+const API_URL = 'http://localhost:3030/api';
 export default class BarChartHorizontal extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    componentDidMount() {
+        this.fetchData();
+    }
 
-    fetchData() {
-        return data
+    async fetchData() {
+        try {
+            const { data } = await axios.get(`${API_URL}/sensorsbylocation`)
+            this.setState({ Data: data.data });
+            console.log('data', data.data);
+
+        } catch (error) {
+            console.log('ERROR MESSAGE :', error.message);
+            console.log('ERROR :', error);
+        }
     };
 
     render() {
+        // console.log('sensors count', this.fetchData());
+
         return (
             <div style={{ width: '90%', height: 250 }}>
                 <ResponsiveContainer >
-                    <BarChart data={this.fetchData()}
-                        layout='vertical'>
+                    <BarChart data={this.state.Data}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis type="number" />
-                        <YAxis type="category" dataKey="name" />
+                        <XAxis dataKey="location" />
+                        <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="pv" fill="#30C9AC" />
-                        <Bar dataKey="uv" fill="#F6B772" />
+                        <Bar dataKey="sensors" fill="#30C9AC" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

@@ -38,7 +38,7 @@ function WidgetGridList(props) {
                     <Widget title="Amount Cutting" child={() => (<BarChartHorizontal2 />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Profit & Loss" child={() => (<BarChartHorizontal />)} />
+                    <Widget title="Sensors by Country" child={() => (<BarChartHorizontal />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Last Transactions" child={() => (<ListTop5 />)} />
