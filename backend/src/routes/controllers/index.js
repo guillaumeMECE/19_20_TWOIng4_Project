@@ -27,4 +27,5 @@ module.exports = {
 
     // KPI
     SensorsByLocation: require('./kpi/sensorsByLocation'),
+    AirPollutionByLocation: require('./kpi/airPollutionByLocation'),
 };
