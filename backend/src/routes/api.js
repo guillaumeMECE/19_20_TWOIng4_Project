@@ -4,10 +4,6 @@ const { Router } = require('express');
 const router = Router();
 
 /**
- * Middlewares imports
- */
-
-/**
  * Controllers imports
  */
 
@@ -17,13 +13,15 @@ const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, UpdateMeasure
 // SENSOR IMPORT
 const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor, ReadMeasuresSensor } = require('@controllers');
 
+// USER IMPORT
+const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser, ReadSensorsUser, ReadLocation } = require('@controllers');
+
 // KPI
 const { SensorsByLocation, AirPollutionByLocation, TemperatureByLocation } = require('@controllers');
 
 /**
  * MIDDLEWARES
  */
-const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser, ReadSensorsUser, ReadLocation } = require('@controllers');
 
 
 /**
@@ -45,7 +43,6 @@ router.get('/users', ReadUser);
 router.get('/users/:id/sensors', ReadSensorsUser);
 router.patch('/users/:id', UpdateUser);
 router.delete('/users/:id', DeleteUser);
-
 
 // Sensor ROUTES
 router.post('/sensors', CreateSensor);
