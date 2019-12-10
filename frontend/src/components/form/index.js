@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import HomeIcon from '@material-ui/icons/Home';
-import FormMeasure from './formMeasure'
+import FormMeasure from './formMeasure';
+import FormSensor from './formSensor';
 import axios from 'axios';
 
 const API_URL = 'http://localhost:3030/api';
@@ -61,6 +62,28 @@ export default class Form extends Component {
       const newObj = this.state.obj;
       newObj.data.value = v;
       this.setState({ obj: newObj })
+    } catch (error) {
+      console.log('ERROR MESSAGE :', error.message);
+      console.log('ERROR :', error);
+    }
+
+  }
+
+  updateLocationSensor(v) {
+    console.log('props.obj._id', this.props.obj._id);
+
+    return axios.patch(`${API_URL}/sensors/${this.props.obj._id}`,
+      { location: v });
+  }
+
+  async handleClickForUpdateSensor(v) {
+    console.log('event.target.value', v);
+    try {
+      await this.updateLocationSensor(v);
+      const newObj = this.state.obj;
+      newObj.data.location = v;
+      this.setState({ obj: newObj })
+      window.location.reload(true);
     } catch (error) {
       console.log('ERROR MESSAGE :', error.message);
       console.log('ERROR :', error);
@@ -145,7 +168,9 @@ export default class Form extends Component {
           <Grid item xs={12}>
             {this.state.obj.type === 'measure' ?
               <FormMeasure id={this.state.obj._id} onClick={(v) => this.handleClickForUpdateMeasure(v)} /> :
-              ''}
+              this.state.obj.type === 'sensor' ?
+                <FormSensor id={this.state.obj._id} onClick={(v) => this.handleClickForUpdateSensor(v)} /> :
+                ''}
 
           </Grid>
         </Grid>
