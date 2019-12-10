@@ -4,8 +4,6 @@ import './style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import StyledRating from '@material-ui/lab/Rating';
-import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,8 +13,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: "#ffffff",
-    backgroundColor: '#3B3F54',
-    verticalAlign: 'middle'
+    backgroundColor: '#3B3F54'
   },
 }));
 
@@ -53,15 +50,10 @@ export default function Form(props) {
                 props.obj.data.creationDate}
           </Paper>
         </Grid>
-        {props.obj.type === 'user' ?
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-              {"Size :"}
-              <br />
-              {renderSize(props.obj.data.houseSize)}
-
-            </Paper>
-          </Grid>
+        {props.obj.type === 'user' ? <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            {'House Size :'}<br /> {props.obj.data.houseSize}</Paper>
+        </Grid>
           :
           false}
       </Grid>
@@ -69,27 +61,3 @@ export default function Form(props) {
   );
 }
 
-const renderSize = (size) => {
-  switch (size) {
-    case 'small':
-      return (<div>
-        <HomeIcon fontSize="small" />
-        <HomeIcon color="disabled" />
-        <HomeIcon fontSize="large" color="disabled" />
-      </div>)
-    case 'medium':
-      return (<div>
-        <HomeIcon fontSize="small" color="disabled" />
-        <HomeIcon />
-        <HomeIcon fontSize="large" color="disabled" />
-      </div>)
-    case 'big':
-      return (<div>
-        <HomeIcon fontSize="small" color="disabled" />
-        <HomeIcon color="disabled" />
-        <HomeIcon fontSize="large" />
-      </div>)
-    default:
-      break;
-  }
-}
