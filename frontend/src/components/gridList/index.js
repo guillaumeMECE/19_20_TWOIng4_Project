@@ -5,9 +5,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Widget from '../widget';
 import './style.css';
-import ChartTest from '../chartTest';
 import DoughnutChart from '../doughnutChart/index';
-import AreaChart from '../areaChart';
 import BarChartHorizontal from '../barChartHorizontal';
 import ListTop5 from '../ListTop5';
 import InfiniteList from '../infiniteList';
@@ -22,10 +20,6 @@ const handleWidth = (width) => {
             return false;
     }
 };
-
-// const renderSelect = () => {
-//     return (<Select />)
-// }
 
 function WidgetGridList(props) {
     const { width } = props;

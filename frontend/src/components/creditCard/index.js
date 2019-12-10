@@ -10,8 +10,6 @@ export default class CreditCard extends Component {
     }
 
     render() {
-        // let usersList = data.users.map((user, e) => this.renderUsers(user, e))
-        // let publicationsList = this.state.focus.feed.map((publication, e) => this.renderPublications(publication, e))
 
         return (
             <div className="CreditCard">

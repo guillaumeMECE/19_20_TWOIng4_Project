@@ -3,7 +3,6 @@ import axios from 'axios';
 import {
     BarChart, Bar, XAxis, Legend, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
-import data from './data'
 
 const API_URL = 'http://localhost:3030/api';
 export default class BarChartHorizontal extends PureComponent {
@@ -28,7 +27,6 @@ export default class BarChartHorizontal extends PureComponent {
     };
 
     render() {
-        // console.log('sensors count', this.fetchData());
 
         return (
             <div style={{ width: '90%', height: 250 }}>

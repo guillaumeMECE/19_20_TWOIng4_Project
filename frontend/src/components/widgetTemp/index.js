@@ -41,14 +41,13 @@ export default class WidgetTemp extends Component {
         }
     };
 
+    // TODO: fix if null so no value._id
     handleUpdateInputAutocomplete(event, value) {
         console.log(value);
         this.fetchDataChart(value._id);
     }
 
     render() {
-        // let usersList = data.users.map((user, e) => this.renderUsers(user, e))
-        // let publicationsList = this.state.focus.feed.map((publication, e) => this.renderPublications(publication, e))
 
         return (
             <div className="WidgetTemp">

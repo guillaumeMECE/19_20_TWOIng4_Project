@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -19,7 +18,3 @@ export default function ComboBox(props) {
         </div>
     );
 }
-
-
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-
