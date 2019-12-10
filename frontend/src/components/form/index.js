@@ -2,15 +2,6 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-//import InputAdornment from '@material-ui/core/InputAdornment';
-
-
-
-
-
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -18,27 +9,28 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     '& > *': {
       width: 200,
-      margin: theme.spacing(3),},
-      padding: 150,
-      startAdornment: 'white',
+      margin: theme.spacing(3),
+    },
+    padding: 150,
+    startAdornment: 'white',
 
     '& label.Mui-focused': {
       color: 'white'
-      },
+    },
     '& .MuiInput-underline:after': {
       borderBottomColor: 'white',
-      },  
+    },
     '& .MuiInputAdornment-focused': {
-     color: 'white'
-      }, 
+      color: 'white'
+    },
     '& .MuiInputAdornment-positionStart': {
-       color: 'white'
-       }, 
-         '& MuiTypography-colorTextSecondary': {
-          color: 'white'
-          },
+      color: 'white'
+    },
+    '& MuiTypography-colorTextSecondary': {
+      color: 'white'
+    },
 
-    
+
   },
 
   textField: {
@@ -46,9 +38,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#3B3F54',
     borderRadius: '4px',
     "&$focused": {
-        color: '#FFFFFF'
-      }
-    
+      color: '#FFFFFF'
+    }
+
   },
 
   input: {
@@ -81,21 +73,21 @@ export default function LayoutTextFields() {
 
 
 
-         <TextField
+        <TextField
           id="montant"
           label="Montant"
           className={classes.textField}
           type="number"
           margin="normal"
-          InputProps={{ className: classes.input/*, startAdornment: <InputAdornment position="start" color="secondary">€</InputAdornment> */}}
-          InputLabelProps={{className: classes.input }}
+          InputProps={{ className: classes.input/*, startAdornment: <InputAdornment position="start" color="secondary">€</InputAdornment> */ }}
+          InputLabelProps={{ className: classes.input }}
           color="secondary"
 
-          
-          
 
-          
-        />  
+
+
+
+        />
 
         <Autocomplete
           {...defaultProps}
@@ -107,7 +99,7 @@ export default function LayoutTextFields() {
             margin="normal"
             fullWidth
             //InputProps={{ className: classes.input }}
-            
+
             InputLabelProps={{ className: classes.input }} />}
         />
 
@@ -121,7 +113,7 @@ export default function LayoutTextFields() {
           margin="normal"
           InputProps={{ className: classes.input }}
           InputLabelProps={{ className: classes.input }}
-          
+
 
         />
 
