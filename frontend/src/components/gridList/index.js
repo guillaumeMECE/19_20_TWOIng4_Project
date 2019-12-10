@@ -34,7 +34,7 @@ function WidgetGridList(props) {
                     <Widget title="AirPollution By Country" child={() => (<DoughnutChart />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Amount Cutting" child={() => (<BarChartHorizontal2 />)} />
+                    <Widget title="Temperature By Location" child={() => (<BarChartHorizontal2 />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Sensors by Country" child={() => (<BarChartHorizontal />)} />
