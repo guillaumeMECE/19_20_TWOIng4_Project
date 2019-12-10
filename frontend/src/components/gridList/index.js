@@ -9,7 +9,6 @@ import DoughnutChart from '../doughnutChart/index';
 import BarChartHorizontal from '../barChartHorizontal';
 import ListTop5 from '../ListTop5';
 import InfiniteList from '../infiniteList';
-import BarChartHorizontal2 from '../barChartHorizontal2';
 import WidgetTemp from '../widgetTemp';
 import WidgetAverageMeasure from '../widgetAverageMeasure';
 
