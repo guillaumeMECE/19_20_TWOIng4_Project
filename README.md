@@ -1,5 +1,12 @@
 # Projet de fin de semestre
 
+## Clara BENZAKINE & Guillaume MAURIN
+
+## TRELLO
+
+img png dans le repertoire courant
+lien: https://trello.com/b/ubBoUWXj/projetweb
+
 A lire impérativement avant de commencer quoi que ce soit, ce sont les règles que vous devrez appliquer tout au long du semestre:
 
 <p align="center">
