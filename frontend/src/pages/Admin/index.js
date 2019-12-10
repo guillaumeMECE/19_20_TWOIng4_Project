@@ -9,11 +9,11 @@ function Admin() {
     return (
         <div className="Admin">
             <Grid container spacing={3}>
-                <Grid item xs={12} sm={12} md={6} lg={6}>
-                    <Form />
-                </Grid>
                 <Grid item xs>
                     <CardPreview />
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={6}>
+                    <Form />
                 </Grid>
             </Grid>
         </div>

@@ -1,17 +1,16 @@
-import React from 'react'
+import React from 'react';
 import withWidth from '@material-ui/core/withWidth';
 import PropTypes from 'prop-types';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Widget from '../widget';
 import './style.css';
-import ChartTest from '../chartTest';
 import DoughnutChart from '../doughnutChart/index';
-import AreaChart from '../areaChart';
 import BarChartHorizontal from '../barChartHorizontal';
 import ListTop5 from '../ListTop5';
 import InfiniteList from '../infiniteList';
 import BarChartHorizontal2 from '../barChartHorizontal2';
+import WidgetTemp from '../widgetTemp';
 
 const handleWidth = (width) => {
     switch (width) {
@@ -29,16 +28,16 @@ function WidgetGridList(props) {
         <div className="root" >
             <GridList spacing={12} cellHeight={300} className="gridList" cols={isSmall ? 1 : 3}>
                 <GridListTile cols={isSmall ? 1 : 3}>
-                    <Widget title="Suivie du compte" child={() => (<AreaChart />)} />
+                    <Widget title="Temperature in" child={() => (<WidgetTemp />)} />
                 </GridListTile>
                 <GridListTile cols={1}>
-                    <Widget title="Types d'achats" child={() => (<DoughnutChart />)} />
+                    <Widget title="AirPollution By Country" child={() => (<DoughnutChart />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Amount Cutting" child={() => (<BarChartHorizontal2 />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Profit & Loss" child={() => (<BarChartHorizontal />)} />
+                    <Widget title="Sensors by Country" child={() => (<BarChartHorizontal />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Last Transactions" child={() => (<ListTop5 />)} />

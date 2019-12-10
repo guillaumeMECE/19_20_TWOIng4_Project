@@ -16,7 +16,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
-import CompareArrowsIcon from '@material-ui/icons/CompareArrows';
 import Box from '@material-ui/core/Box';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 
@@ -157,9 +156,8 @@ export default function MiniDrawer(props) {
 
                 <List>
                     {['Dashboard', 'Card', 'Admin'].map((text, index) => (
-                        <Link to={renderLink(text)} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <Link key={index} to={renderLink(text)} style={{ color: 'inherit', textDecoration: 'none' }}>
                             <Box className={renderClass(text)} style={{ marginLeft: 10 }}>
-
                                 <ListItem button key={text}>
                                     <ListItemIcon>{renderMenu(text)}</ListItemIcon>
                                     <ListItemText primary={
@@ -169,7 +167,6 @@ export default function MiniDrawer(props) {
                                             </Box>
                                         </Typography>
                                     } />
-
                                 </ListItem>
                             </Box>
                         </Link>

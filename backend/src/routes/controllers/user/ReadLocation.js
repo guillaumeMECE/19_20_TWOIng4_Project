@@ -19,7 +19,7 @@ const secure = async (req) => {
  */
 const process = async (params) => {
     try {
-        const data = await UserModel.find({}).exec();
+        const data = await UserModel.find({}).select({ 'location': true }).exec();
         return data;
     } catch (error) {
         throw new Error('User can\'t be Read'.concat(' > ', error.message));
@@ -29,7 +29,7 @@ const process = async (params) => {
 /**
  * LOGIC :
  */
-const userRead = async (req, res) => {
+const userReadLocation = async (req, res) => {
     try {
         const inputs = await secure(req);
 
@@ -42,4 +42,4 @@ const userRead = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = userRead;
+module.exports = userReadLocation;

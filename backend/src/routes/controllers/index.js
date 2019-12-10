@@ -13,28 +13,23 @@ module.exports = {
     CreateUser: require('./user/Create'),
     ReadOneUser: require('./user/ReadOne'),
     ReadUser: require('./user/Read'),
+    ReadSensorsUser: require('./user/ReadSensors'),
     UpdateUser: require('./user/Update'),
     DeleteUser: require('./user/Delete'),
+    ReadLocation: require('./user/ReadLocation'),
 
-    // auth handlers
-    // RegisterUser: require('./auth/RegisterUser'),
-    // LoginUser: require('./auth/LoginUser'),
-
-    // question handlers
-    // CreateQuestion: require('./question/Create'),
-    // ReadQuestions: require('./question/Read'),
-    // ReadQuestion: require('./question/ReadOne'),
-    // UpdateQuestion: require('./question/Update'),
-    // DeleteQuestion: require('./question/Delete'),
-
-    // user question handlers
-    // CreateUserQrsuestion: require('./user_question/Delete'),
     // Sensor handlers
     CreateSensor: require('./sensor/Create'),
     ReadOneSensor: require('./sensor/ReadOne'),
     ReadSensor: require('./sensor/Read'),
+    ReadMeasuresSensor: require('./sensor/ReadMeasure'),
     UpdateSensor: require('./sensor/Update'),
     DeleteSensor: require('./sensor/Delete'),
 
+   
+    // KPI
+    SensorsByLocation: require('./kpi/sensorsByLocation'),
+    AirPollutionByLocation: require('./kpi/airPollutionByLocation'),
+    TemperatureByLocation: require('./kpi/temperatureByLocation'),
     TempByLocation: require('./kpi/tempByLocation'),
 };
