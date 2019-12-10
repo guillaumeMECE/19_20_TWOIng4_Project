@@ -11,6 +11,7 @@ import ListTop5 from '../ListTop5';
 import InfiniteList from '../infiniteList';
 import BarChartHorizontal2 from '../barChartHorizontal2';
 import WidgetTemp from '../widgetTemp';
+import WidgetAverageMeasure from '../widgetAverageMeasure';
 
 const handleWidth = (width) => {
     switch (width) {
@@ -34,7 +35,7 @@ function WidgetGridList(props) {
                     <Widget title="AirPollution By Country" child={() => (<DoughnutChart />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Amount Cutting" child={() => (<BarChartHorizontal2 />)} />
+                    <Widget title="Measures By Location" child={() => (<WidgetAverageMeasure />)} />
                 </GridListTile>
                 <GridListTile>
                     <Widget title="Sensors by Country" child={() => (<BarChartHorizontal />)} />
