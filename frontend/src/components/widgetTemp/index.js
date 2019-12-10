@@ -41,10 +41,13 @@ export default class WidgetTemp extends Component {
         }
     };
 
-    // TODO: fix if null so no value._id
     handleUpdateInputAutocomplete(event, value) {
         console.log(value);
-        this.fetchDataChart(value._id);
+        if (value === null || value === undefined) {
+            this.fetchDataChart();
+        } else {
+            this.fetchDataChart(value._id);
+        }
     }
 
     render() {
