@@ -88,7 +88,31 @@ export default class Form extends Component {
       console.log('ERROR MESSAGE :', error.message);
       console.log('ERROR :', error);
     }
+  }
 
+  createMeasure(v, t) {
+    console.log('props.obj._id', this.props.obj._id);
+
+    return axios.post(`${API_URL}/measures`,
+      {
+        value: v,
+        type: t,
+        sensorID: this.props.obj._id,
+      });
+  }
+
+  async handleClickForCreateMeasure(v, t) {
+    console.log('event.target.value IIIIICCCCCIIII', v, t);
+    try {
+      await this.createMeasure(v, t);
+      // const newObj = this.state.obj;
+      // newObj.data.location = v;
+      // this.setState({ obj: newObj })
+      window.location.reload(true);
+    } catch (error) {
+      console.log('ERROR MESSAGE :', error.message);
+      console.log('ERROR :', error);
+    }
   }
 
   render() {
@@ -169,7 +193,7 @@ export default class Form extends Component {
             {this.state.obj.type === 'measure' ?
               <FormMeasure id={this.state.obj._id} onClick={(v) => this.handleClickForUpdateMeasure(v)} /> :
               this.state.obj.type === 'sensor' ?
-                <FormSensor id={this.state.obj._id} onClick={(v) => this.handleClickForUpdateSensor(v)} /> :
+                <FormSensor id={this.state.obj._id} onClick={(v) => this.handleClickForUpdateSensor(v)} onClickToCreate={(v, t) => this.handleClickForCreateMeasure(v, t)} /> :
                 ''}
 
           </Grid>
