@@ -7,6 +7,10 @@
 img png dans le repertoire courant
 lien: https://trello.com/b/ubBoUWXj/projetweb
 
+## IMAGES
+
+Des screens du projet on été fait dans le repertoire courant au format pdf (screenProject.pdf)
+
 A lire impérativement avant de commencer quoi que ce soit, ce sont les règles que vous devrez appliquer tout au long du semestre:
 
 <p align="center">
