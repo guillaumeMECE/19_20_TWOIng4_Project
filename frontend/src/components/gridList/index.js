@@ -15,6 +15,8 @@ import WidgetAverageMeasure from '../widgetAverageMeasure';
 
 const handleWidth = (width) => {
     switch (width) {
+        case 'sm':
+            return true;
         case 'xs':
             return true;
         default:
@@ -35,16 +37,16 @@ function WidgetGridList(props) {
                     <Widget title="AirPollution By Country" child={() => (<DoughnutChart />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Measures By Location" child={() => (<WidgetAverageMeasure />)} />
-                </GridListTile>
-                <GridListTile>
-                    <Widget title="Sensors by Country" child={() => (<BarChartHorizontal />)} />
-                </GridListTile>
-                <GridListTile>
                     <Widget title="Top 3 Temp" child={() => (<ListTop5 />)} />
                 </GridListTile>
                 <GridListTile>
+                    <Widget title="Measures By Location" child={() => (<WidgetAverageMeasure />)} />
+                </GridListTile>
+                <GridListTile>
                     <Widget title="Sensors By HouseSize" child={() => (<InfiniteList />)} />
+                </GridListTile>
+                <GridListTile cols={isSmall ? 1 : 2}>
+                    <Widget title="Sensors by Country" child={() => (<BarChartHorizontal />)} />
                 </GridListTile>
             </GridList>
         </div>
