@@ -114,7 +114,7 @@ export default class GmailTreeView extends Component {
                         bgColor="#FCE8E6"
                         _id={user._id}
                         type={'user'}
-                        onClick={(obj) => this.props.onClick(obj)}>
+                        onClick={(obj) => this.handleClick(obj)}>
                         {user.sensors.map((sensor, i) => (
                             <StyledTreeItem
                                 nodeId={Math.random().toString(36).substring(7)}
@@ -125,7 +125,7 @@ export default class GmailTreeView extends Component {
                                 bgColor="#e6f4ea"
                                 _id={sensor._id}
                                 type={'sensor'}
-                                onClick={(obj) => this.props.onClick(obj)} >
+                                onClick={(obj) => this.handleClick(obj)} >
                                 {sensor.measures.map((measure, i) => (
                                     <StyledTreeItem
                                         nodeId={Math.random().toString(36).substring(7)}
@@ -136,7 +136,7 @@ export default class GmailTreeView extends Component {
                                         bgColor={this.renderBgColor(measure.type)}
                                         _id={measure._id}
                                         type={'measure'}
-                                        onClick={(obj) => this.props.onClick(obj)} />
+                                        onClick={(obj) => this.handleClick(obj)} />
                                 ))}
                             </StyledTreeItem>
                         ))}
@@ -147,6 +147,11 @@ export default class GmailTreeView extends Component {
         } catch (err) {
             console.log('RenderUser error : ', err);
         }
+    }
+
+    handleClick(id) {
+        console.log('valueOnClickTreeItem in TreeView', id);
+
     }
 
     render() {
