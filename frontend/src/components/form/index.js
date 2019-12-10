@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import HomeIcon from '@material-ui/icons/Home';
 import FormMeasure from './formMeasure';
 import FormSensor from './formSensor';
+import FormUser from './formUser';
 import axios from 'axios';
 
 const API_URL = 'http://localhost:3030/api';
@@ -115,6 +116,32 @@ export default class Form extends Component {
     }
   }
 
+  createSensor(loc) {
+    console.log('props.obj._id', this.props.obj._id);
+    console.log('WOOOOOOOOOOOOOOOOOOOOOOOORKKK 22222', loc);
+    return axios.post(`${API_URL}/sensors`,
+      {
+        location: loc,
+        userID: this.props.obj._id,
+      });
+  }
+
+  async handleClickForCreateSensor(loc) {
+    // console.log('event.target.value IIIIICCCCCIIII', v, t);
+    console.log('WOOOOOOOOOOOOOOOOOOOOOOOORKKK');
+
+    try {
+      await this.createSensor(loc);
+      // const newObj = this.state.obj;
+      // newObj.data.location = v;
+      // this.setState({ obj: newObj })
+      window.location.reload(true);
+    } catch (error) {
+      console.log('ERROR MESSAGE :', error.message);
+      console.log('ERROR :', error);
+    }
+  }
+
   render() {
     return (
       <div className='Form' >
@@ -194,7 +221,9 @@ export default class Form extends Component {
               <FormMeasure id={this.state.obj._id} onClick={(v) => this.handleClickForUpdateMeasure(v)} /> :
               this.state.obj.type === 'sensor' ?
                 <FormSensor id={this.state.obj._id} onClick={(v) => this.handleClickForUpdateSensor(v)} onClickToCreate={(v, t) => this.handleClickForCreateMeasure(v, t)} /> :
-                ''}
+                this.state.obj.type === 'user' ?
+                  <FormUser id={this.state.obj._id} onClickToCreate={(loc) => this.handleClickForCreateSensor(loc)} /> :
+                  ''}
 
           </Grid>
         </Grid>
