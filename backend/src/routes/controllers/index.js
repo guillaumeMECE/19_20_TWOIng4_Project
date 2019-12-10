@@ -32,4 +32,5 @@ module.exports = {
     AirPollutionByLocation: require('./kpi/airPollutionByLocation'),
     TemperatureByLocation: require('./kpi/temperatureByLocation'),
     AverageMeasureByLocation: require('./kpi/averageMeasureByLocation'),
+    ThreeHighestTemperature: require('./kpi/threeHighestTemperature'),
 };

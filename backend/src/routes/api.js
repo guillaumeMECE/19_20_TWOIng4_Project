@@ -17,7 +17,7 @@ const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor, Rea
 const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser, ReadSensorsUser, ReadLocation } = require('@controllers');
 
 // KPI
-const { SensorsByLocation, AirPollutionByLocation, TemperatureByLocation, AverageMeasureByLocation } = require('@controllers');
+const { SensorsByLocation, AirPollutionByLocation, TemperatureByLocation, AverageMeasureByLocation, ThreeHighestTemperature } = require('@controllers');
 
 /**
  * MIDDLEWARES
@@ -59,5 +59,6 @@ router.get('/airpollutionbylocation', AirPollutionByLocation);
 router.get('/temperaturebylocation/:id', TemperatureByLocation);
 router.get('/temperaturebylocation', TemperatureByLocation);
 router.get('/averagemeasurebylocation/:id', AverageMeasureByLocation);
+router.get('/threehighesttemperature', ThreeHighestTemperature);
 
 module.exports = router;
