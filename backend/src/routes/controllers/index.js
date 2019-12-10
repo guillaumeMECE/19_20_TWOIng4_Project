@@ -33,4 +33,5 @@ module.exports = {
     TemperatureByLocation: require('./kpi/temperatureByLocation'),
     AverageMeasureByLocation: require('./kpi/averageMeasureByLocation'),
     ThreeHighestTemperature: require('./kpi/threeHighestTemperature'),
+    FiveLastMeasures: require('./kpi/fiveLastMeasures'),
 };
