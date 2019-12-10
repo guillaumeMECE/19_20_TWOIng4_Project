@@ -15,7 +15,7 @@ export default class CardPreview extends Component {
 
         return (
             <div className="CardPreview">
-                <TreeView />
+                <TreeView onClick={(obj) => this.props.onClick(obj)} />
             </div>
         );
     }
