@@ -5,25 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import HomeIcon from '@material-ui/icons/Home';
-import Button from '@material-ui/core/Button';
 import FormMeasure from './formMeasure'
 import axios from 'axios';
 
 const API_URL = 'http://localhost:3030/api';
-
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     padding: theme.spacing(2),
-//     textAlign: 'center',
-//     color: "#ffffff",
-//     backgroundColor: '#3B3F54',
-//     verticalAlign: 'middle'
-//   },
-// }));
-
 
 export default class Form extends Component {
   constructor(props) {
@@ -35,23 +20,7 @@ export default class Form extends Component {
   }
   componentWillReceiveProps(newProps) {
     this.setState({ obj: newProps.obj })
-    //console.log('PROOOOOOOOOOOOOOOPS :', this.state.obj);
-
-    // if (this.props.obj.type === 'measure') {
-    //   this.setState({ value: this.props.obj.data.value })
-    //   console.log('value PROOOOOOOPS', this.props.obj.data.value);
-    //   console.log('value STAAAAAAATE', this.state.value);
-    // }
   }
-  // componentDidMount() {
-  //   console.log('PROOOOOOOOOOOOOOOPS :', this.state.obj);
-
-  //   if (this.props.obj.type === 'measure') {
-  //     this.setState({ value: this.props.obj.data.value })
-  //     console.log('value PROOOOOOOPS', this.props.obj.data.value);
-  //     console.log('value STAAAAAAATE', this.state.value);
-  //   }
-  // }
 
   renderSize(size) {
     switch (size) {
@@ -96,7 +65,6 @@ export default class Form extends Component {
       console.log('ERROR MESSAGE :', error.message);
       console.log('ERROR :', error);
     }
-    // this.props.obj.data.value = v;
 
   }
 

@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import HomeIcon from '@material-ui/icons/Home';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
-const API_URL = 'http://localhost:3030/api';
 
 export default class FormMeasure extends Component {
     constructor(props) {
