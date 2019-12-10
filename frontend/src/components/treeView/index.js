@@ -58,6 +58,32 @@ export default class GmailTreeView extends Component {
         }
     }
 
+    renderColor(txt) {
+        switch (txt) {
+            case 'humidity':
+                return "#1A73E8";
+            case 'airPollution':
+                return "#A142F4";
+            case 'temperature':
+                return '#e3742f';
+            default:
+                return "#A142F4";
+        }
+    }
+
+    renderBgColor(txt) {
+        switch (txt) {
+            case 'humidity':
+                return '#E8F0FE';
+            case 'airPollution':
+                return "#F3E8FD";
+            case 'temperature':
+                return '#fcefe3';
+            default:
+                return "#F3E8FD";
+        }
+    }
+
     async renderUsers() {
         try {
             const res = await axios.get(`${API_URL}/users`);
@@ -83,23 +109,34 @@ export default class GmailTreeView extends Component {
                         nodeId={i.toString()}
                         key={i}
                         labelText={user.location}
-                        labelIcon={LocationOnIcon} >
+                        labelIcon={LocationOnIcon}
+                        color="#D93025"
+                        bgColor="#FCE8E6"
+                        _id={user._id}
+                        type={'user'}
+                        onClick={(obj) => this.props.onClick(obj)}>
                         {user.sensors.map((sensor, i) => (
                             <StyledTreeItem
                                 nodeId={Math.random().toString(36).substring(7)}
                                 key={Math.random().toString(36).substring(7)}
                                 labelText={sensor.location}
                                 labelIcon={this.renderIcon(sensor.location)}
-                                color="#e3742f"
-                                bgColor="#fcefe3" >
+                                color="#3c8039"
+                                bgColor="#e6f4ea"
+                                _id={sensor._id}
+                                type={'sensor'}
+                                onClick={(obj) => this.props.onClick(obj)} >
                                 {sensor.measures.map((measure, i) => (
                                     <StyledTreeItem
                                         nodeId={Math.random().toString(36).substring(7)}
                                         key={Math.random().toString(36).substring(7)}
                                         labelText={measure.type}
                                         labelIcon={this.renderIcon(measure.type)}
-                                        color="#e3742f"
-                                        bgColor="#fcefe3" />
+                                        color={this.renderColor(measure.type)}
+                                        bgColor={this.renderBgColor(measure.type)}
+                                        _id={measure._id}
+                                        type={'measure'}
+                                        onClick={(obj) => this.props.onClick(obj)} />
                                 ))}
                             </StyledTreeItem>
                         ))}
@@ -111,10 +148,6 @@ export default class GmailTreeView extends Component {
             console.log('RenderUser error : ', err);
         }
     }
-
-    // renderComponent() {
-    //     return ()
-    // }
 
     render() {
         return (
@@ -131,6 +164,7 @@ export default class GmailTreeView extends Component {
                     defaultCollapseIcon={< ArrowDropDownIcon />}
                     defaultExpandIcon={< ArrowRightIcon />}
                     defaultEndIcon={< div style={{ width: 24 }} />}
+                // onNodeToggle={(e, value) => this.handleChange(e, value)}
                 >
                     {this.state.Users}
                 </TreeView >)

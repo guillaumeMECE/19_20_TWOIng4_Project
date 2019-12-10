@@ -76,9 +76,11 @@ export default function StyledTreeItem(props) {
                 label: classes.label,
             }}
             {...other}
+            onClick={() => props.onClick({ _id: props._id, type: props.type })}
         />
     );
 }
+
 
 StyledTreeItem.propTypes = {
     bgColor: PropTypes.string,

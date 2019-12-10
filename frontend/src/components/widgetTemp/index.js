@@ -12,6 +12,7 @@ export default class WidgetTemp extends Component {
         super(props);
         this.state = {};
     }
+    
     componentDidMount() {
         this.fetchDataSelect();
         this.fetchDataChart();
