@@ -44,7 +44,7 @@ function WidgetGridList(props) {
                     <Widget title="Top 3 Temp" child={() => (<ListTop5 />)} />
                 </GridListTile>
                 <GridListTile>
-                    <Widget title="Top In" child={() => (<InfiniteList />)} />
+                    <Widget title="Sensors By HouseSize" child={() => (<InfiniteList />)} />
                 </GridListTile>
             </GridList>
         </div>
