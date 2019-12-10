@@ -16,6 +16,7 @@ module.exports = {
     ReadSensorsUser: require('./user/ReadSensors'),
     UpdateUser: require('./user/Update'),
     DeleteUser: require('./user/Delete'),
+    ReadLocation: require('./user/ReadLocation'),
 
     // Sensor handlers
     CreateSensor: require('./sensor/Create'),
@@ -28,4 +29,5 @@ module.exports = {
     // KPI
     SensorsByLocation: require('./kpi/sensorsByLocation'),
     AirPollutionByLocation: require('./kpi/airPollutionByLocation'),
+    TemperatureByLocation: require('./kpi/temperatureByLocation'),
 };

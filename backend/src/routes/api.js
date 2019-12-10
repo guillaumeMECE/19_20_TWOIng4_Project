@@ -18,12 +18,12 @@ const { ReadMeasure, ReadOneMeasure, CreateMeasure, DeleteMeasure, UpdateMeasure
 const { ReadSensor, ReadOneSensor, CreateSensor, DeleteSensor, UpdateSensor, ReadMeasuresSensor } = require('@controllers');
 
 // KPI
-const { SensorsByLocation, AirPollutionByLocation } = require('@controllers');
+const { SensorsByLocation, AirPollutionByLocation, TemperatureByLocation } = require('@controllers');
 
 /**
  * MIDDLEWARES
  */
-const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser, ReadSensorsUser } = require('@controllers');
+const { ReadUser, ReadOneUser, CreateUser, DeleteUser, UpdateUser, ReadSensorsUser, ReadLocation } = require('@controllers');
 
 
 /**
@@ -38,6 +38,7 @@ router.patch('/measures/:id', UpdateMeasure);
 router.delete('/measures/:id', DeleteMeasure);
 
 // User ROUTES
+router.get('/users/location', ReadLocation);
 router.post('/users', CreateUser);
 router.get('/users/:id', ReadOneUser);
 router.get('/users', ReadUser);
@@ -57,5 +58,7 @@ router.delete('/sensors/:id', DeleteSensor);
 // KPI
 router.get('/sensorsbylocation', SensorsByLocation);
 router.get('/airpollutionbylocation', AirPollutionByLocation);
+router.get('/temperaturebylocation/:id', TemperatureByLocation);
+router.get('/temperaturebylocation', TemperatureByLocation);
 
 module.exports = router;

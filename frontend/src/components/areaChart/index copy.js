@@ -27,33 +27,31 @@ export default class AreaChartComponent extends PureComponent {
 
     //     return dataMax / (dataMax - dataMin);
     // };
-    // componentDidMount() {
-    //     this.fetchData();
-    // }
+    componentDidMount() {
+        this.fetchData();
+    }
 
-    // async fetchData() {
-    //     try {
-    //         const { data } = await axios.get(`${API_URL}/temperaturebylocation`)
-    //         this.setState({ Data: data.data[0].temp });
-    //         console.log('data AREA', data.data);
+    async fetchData() {
+        try {
+            const { data } = await axios.get(`${API_URL}/temperaturebylocation`)
+            this.setState({ Data: data.data[0].temp });
+            console.log('data AREA', data.data);
 
-    //     } catch (error) {
-    //         console.log('ERROR MESSAGE :', error.message);
-    //         console.log('ERROR :', error);
-    //     }
-    // };
+        } catch (error) {
+            console.log('ERROR MESSAGE :', error.message);
+            console.log('ERROR :', error);
+        }
+    };
     // fetchData() {
     //     return data
     // };
 
     render() {
-        console.log('DATA RECEIVED IN AREA', this.props.data);
-        // const dataTemp = this.props.data.temp;
         return (
             <div style={{ width: '100%', height: 200, borderRadius: '20px' }}>
                 <ResponsiveContainer>
                     <AreaChart
-                        data={this.props.data}
+                        data={this.state.Data}
                         margin={{
                             top: 10, right: 30, left: 0, bottom: 0,
                         }}
