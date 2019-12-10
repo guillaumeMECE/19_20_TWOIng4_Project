@@ -1,4 +1,4 @@
-import React, { PureComponent }  from 'react';
+import React, { PureComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
@@ -26,81 +26,78 @@ const API_URL = 'http://localhost:3030/api';
 
 
 
-  export default class ListTop5 extends PureComponent {
-    
-    constructor(props) {
-      super(props);
-      this.state = {Data:[]};
+export default class ListTop5 extends PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.state = { Data: [] };
+  }
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  async fetchData() {
+    try {
+      const { data } = await axios.get(`${API_URL}/threeHighestTemperature`);
+
+      this.setState({ Data: data.data });
+
+    } catch (error) {
+      console.log('ERROR MESSAGE :', error.message);
+      console.log('ERROR :', error);
     }
-    componentDidMount() {
-      this.fetchData();
-      console.log('DATAAAAAAAAA', this.state.Data);
-    }
-    
-    async fetchData() {
-      try {
-        const { data } = await axios.get(`${API_URL}/threeHighestTemperature`);
-        
-        console.log('DATAAAAAAAAA', data.data);
-        
-        this.setState({ Data: data.data });
-        
-      } catch (error) {
-        console.log('ERROR MESSAGE :', error.message);
-        console.log('ERROR :', error);
-      }
-    };
-    
-    
-    
-    
-    render(){
-      return ( 
-        <div 
+  };
+
+
+
+
+  render() {
+    return (
+      <div
         className={makeStyles(theme => ({
-          
-            width: '100%',
-            flexWrap: 'wrap',
-            overflowY: 'scroll',
-            height: '80%',
-        
-            backgroundColor: theme.palette.background.paper,
-          
+
+          width: '100%',
+          flexWrap: 'wrap',
+          overflowY: 'scroll',
+          height: '80%',
+
+          backgroundColor: theme.palette.background.paper,
+
         }))}
-        >
-      {this.state.Data.map((obj, index) => (
-        <div>
-          <ListItem alignItems="flex-start">
+      >
+        {this.state.Data.map((obj, index) => (
+          <div>
+            <ListItem alignItems="flex-start">
 
-            <ListItemText
-              // primary={obj.maxTemp}
-              primary={obj.maxTemp}
+              <ListItemText
+                // primary={obj.maxTemp}
+                primary={obj.maxTemp}
 
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={makeStyles(theme => ({
-                      
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      className={makeStyles(theme => ({
+
                         display: 'inline',
-                      
-                    }))}
-                    color="textPrimary"
-                  >
-                    {obj.location}
-                  </Typography>
-                  {/* {' - '.concat(obj._id)} */}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-          <Divider variant="middle" component="li" />
 
-        </div>
-      ))}
-    </div>
+                      }))}
+                      color="textPrimary"
+                    >
+                      {obj.location}
+                    </Typography>
+                    {/* {' - '.concat(obj._id)} */}
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+            <Divider variant="middle" component="li" />
 
-)
-}
+          </div>
+        ))}
+      </div>
+
+    )
+  }
 }

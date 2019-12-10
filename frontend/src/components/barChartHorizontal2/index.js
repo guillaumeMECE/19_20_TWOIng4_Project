@@ -10,8 +10,6 @@ export default class BarChartHorizontal2 extends PureComponent {
     }
 
     render() {
-
-        console.log('PROPS DATA BARCHART 2', this.props.data)
         return (
             <div style={{ width: '100%', height: 200 }}>
                 <ResponsiveContainer >

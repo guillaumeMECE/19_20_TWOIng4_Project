@@ -23,7 +23,6 @@ export default class DoughnutChart extends PureComponent {
         try {
             const { data } = await axios.get(`${API_URL}/airpollutionbylocation`);
 
-            console.log('data piechart', data.data);
             data.data.forEach((element, id) => {
                 element.fill = COLORS[id % COLORS.length];
             });

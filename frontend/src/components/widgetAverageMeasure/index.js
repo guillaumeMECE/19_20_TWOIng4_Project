@@ -21,8 +21,6 @@ export default class WidgetAverageMeasure extends Component {
         try {
             const { data } = await axios.get(`${API_URL}/users/location`)
             this.setState({ DataSelect: data });
-            console.log('data Select', data);
-
         } catch (error) {
             console.log('ERROR MESSAGE :', error.message);
             console.log('ERROR :', error);
@@ -32,11 +30,7 @@ export default class WidgetAverageMeasure extends Component {
     async fetchDataChart(id = 'null') {
         try {
             const { data } = await axios.get(`${API_URL}/averagemeasurebylocation/${id}`)
-            console.log('data Chart BAR', data.data);
-            this.setState({ DataChart: [data.data ]});
-            console.log('data Chart BAR STATE', [this.state.DataChart]);
-
-
+            this.setState({ DataChart: [data.data] });
         } catch (error) {
             console.log('ERROR MESSAGE :', error.message);
             console.log('ERROR :', error);
@@ -44,7 +38,6 @@ export default class WidgetAverageMeasure extends Component {
     };
 
     handleUpdateInputAutocomplete(event, value) {
-        console.log(value);
         if (value === null || value === undefined) {
             this.fetchDataChart();
         } else {

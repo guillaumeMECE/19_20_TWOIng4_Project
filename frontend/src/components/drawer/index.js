@@ -84,14 +84,9 @@ const useStyles = makeStyles(theme => ({
 export default function MiniDrawer(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    console.log('props.pathname', props.pathname);
-
-
 
     const handleDrawer = () => {
         setOpen(!open);
-        console.log('state 3', open);
-
     };
 
     const renderMenu = (text) => {

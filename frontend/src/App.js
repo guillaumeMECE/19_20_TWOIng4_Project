@@ -11,28 +11,9 @@ const renderPage = () => {
   return (<Routes />);
 }
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Hidden xsDown>
-//         <Drawer child={() => renderPage()} />
-//       </Hidden>
-//       <Hidden smUp>
-//         <Box m={2}>
-//           {renderPage()}
-//         </Box>
-//         <BottomNavigation />
-//       </Hidden>
-//     </div>
-//   );
-// }
-
-
-// export default const SomeComponent = withRouter(props => <App {...props} />);
 class App extends React.Component {
   render() {
     const { pathname } = this.props.location;
-    console.log('pathname: ', pathname);
 
     return (
       <div className="App">
@@ -49,7 +30,5 @@ class App extends React.Component {
     );
   };
 }
-
-// const App = withRouter(props => <AppClass {...props} />);
 
 export default withRouter(props => <App {...props} />);

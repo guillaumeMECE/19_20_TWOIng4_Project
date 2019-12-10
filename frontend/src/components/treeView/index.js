@@ -89,8 +89,6 @@ export default class GmailTreeView extends Component {
             const res = await axios.get(`${API_URL}/users`);
 
             let users = res.data;
-            console.log('users: ', users);
-
 
             await Promise.all(users.map(async (user) => {
                 const res = await this.fetchSensors(user._id);
@@ -100,8 +98,6 @@ export default class GmailTreeView extends Component {
                     sensor.measures = res.data;
                 }));
             }));
-
-            console.log('users2: ', users);
 
             this.setState({
                 Users: users.map((user, i) => (

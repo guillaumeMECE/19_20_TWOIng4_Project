@@ -26,15 +26,11 @@ class Admin extends Component {
     }
 
     async handleClick(obj) {
-        console.log('valueOnClickTreeItem in TreeView', obj);
-        console.log('valueOnClickTreeItem in TreeView STATE', this.state.Obj);
         const { data } = await this.fetchDocument(obj);
-        console.log('data FROM ADMIN GET: ', data);
         obj.data = data;
         this.setState({ Obj: obj });
 
     }
-    // console.log('stateObj', stateObj);
 
     render() {
         return (

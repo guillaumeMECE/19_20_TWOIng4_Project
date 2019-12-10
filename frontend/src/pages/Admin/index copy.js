@@ -6,12 +6,10 @@ import Grid from '@material-ui/core/Grid';
 
 let stateObj;
 const handleClick = (obj) => {
-    console.log('valueOnClickTreeItem in TreeView', obj);
     stateObj = obj;
 }
 
 function Admin() {
-    console.log('stateObj', stateObj);
 
     return (
         <div className="Admin">

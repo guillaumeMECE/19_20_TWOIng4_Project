@@ -18,7 +18,6 @@ export default class BarChartHorizontal extends PureComponent {
         try {
             const { data } = await axios.get(`${API_URL}/sensorsbylocation`)
             this.setState({ Data: data.data });
-            console.log('data', data.data);
 
         } catch (error) {
             console.log('ERROR MESSAGE :', error.message);

@@ -12,7 +12,7 @@ export default class WidgetTemp extends Component {
         super(props);
         this.state = {};
     }
-    
+
     componentDidMount() {
         this.fetchDataSelect();
         this.fetchDataChart();
@@ -22,7 +22,6 @@ export default class WidgetTemp extends Component {
         try {
             const { data } = await axios.get(`${API_URL}/users/location`)
             this.setState({ DataSelect: data });
-            console.log('data Select', data);
 
         } catch (error) {
             console.log('ERROR MESSAGE :', error.message);
@@ -33,7 +32,6 @@ export default class WidgetTemp extends Component {
     async fetchDataChart(id = 'null') {
         try {
             const { data } = await axios.get(`${API_URL}/temperaturebylocation/${id}`)
-            console.log('data Chart area', data.data);
             this.setState({ DataChart: data.data.temp });
 
         } catch (error) {
@@ -43,7 +41,6 @@ export default class WidgetTemp extends Component {
     };
 
     handleUpdateInputAutocomplete(event, value) {
-        console.log(value);
         if (value === null || value === undefined) {
             this.fetchDataChart();
         } else {
