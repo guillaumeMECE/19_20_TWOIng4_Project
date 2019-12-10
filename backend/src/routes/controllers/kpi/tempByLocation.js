@@ -1,4 +1,4 @@
-const { UserModel, MeasureModel } = require('@models');
+const { UserModel, SensorModel, MeasureModel } = require('@models');
 
 /**
  * Request structure
@@ -23,37 +23,53 @@ const process = async (param) => {
 
     try {
         const res = await UserModel.find({}).select({ 'location': true }).lean().exec();
+        res.forEach((element) => {
+            // element.name = element.location;
+        });
 
-   
-        // A MODIFIER
-
-        const res = await UserModel.find({}).select({ 'location': true }).lean().exec();
+        let avgMeasures = 0;
+        let avgSensors = 0;
 
         for (let user = 0; user < res.length; user++) {
             // eslint-disable-next-line no-await-in-loop
-            res[user].sensors = await SensorModel.find({ 'userID': res[user]._id }).lean().exec();
-            console.log('res[user].sensors[sensor].length: ', res[user].sensors.length);
+            res[user].sensors = await SensorModel.find({ 'userID': res[user]._id }).select({ 'userID': true }).lean().exec();
+
             for (let sensor = 0; sensor < res[user].sensors.length; sensor++) {
                 // eslint-disable-next-line no-await-in-loop
-                res[user].sensors[sensor].measures = await MeasureModel.find({ 'sensorID': res[user].sensors[sensor]._id, 'type': 'airPollution' }).exec();
-                console.log('res[user].sensors[sensor].measures: ', res[user].sensors[sensor].measures);
+                res[user].sensors[sensor].measures = await MeasureModel.find({ 'sensorID': res[user].sensors[sensor]._id, 'type': 'temperature' }).select({ 'type': true, 'value': true }).lean().exec();
+                // eslint-disable-next-line no-loop-func
+                res[user].sensors[sensor].measures.forEach((element) => {
+                    avgMeasures += element.value;
+                });
+                res[user].sensors[sensor].temperature = avgMeasures / (res[user].sensors[sensor].measures.length);
+                avgMeasures = 0;
+
+                // eslint-disable-next-line no-restricted-globals
+                if (!isNaN(res[user].sensors[sensor].temperature)) {
+                    avgSensors += res[user].sensors[sensor].temperature;
+                }
             }
+            res[user].temperature = Math.round((avgSensors / res[user].sensors.length) * 100) / 100;
+            avgSensors = 0;
+            delete res[user].sensors;
         }
 
-        
+        // for (let i = res.length - 1; i >= 4; i--) {
+        //     res.splice(Math.floor(Math.random() * res.length), 1);
+        //     console.log(res);
+        // }
+
         return res;
     } catch (error) {
-        throw new Error('temperatureByLocation can\'t be found'.concat(' > ', error.message));
+        throw new Error('tempByLocation can\'t be get'.concat(' > ', error.message));
     }
-
-
 
 };
 
 /**
  * LOGIC :
  */
-const temperatureByLocation = async (req, res) => {
+const tempByLocation = async (req, res) => {
     try {
         const inputs = await secure(req);
 
@@ -67,4 +83,4 @@ const temperatureByLocation = async (req, res) => {
         res.status(400).json({ 'message': error.message });
     }
 };
-module.exports = temperatureByLocation;
+module.exports = tempByLocation;

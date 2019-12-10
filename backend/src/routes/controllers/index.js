@@ -36,5 +36,5 @@ module.exports = {
     UpdateSensor: require('./sensor/Update'),
     DeleteSensor: require('./sensor/Delete'),
 
-    TempByLocation: require('./kpi/TempByLocation'),
+    TempByLocation: require('./kpi/tempByLocation'),
 };
