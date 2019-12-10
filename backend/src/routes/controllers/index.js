@@ -26,11 +26,12 @@ module.exports = {
     UpdateSensor: require('./sensor/Update'),
     DeleteSensor: require('./sensor/Delete'),
 
-   
+
     // KPI
     SensorsByLocation: require('./kpi/sensorsByLocation'),
     AirPollutionByLocation: require('./kpi/airPollutionByLocation'),
     TemperatureByLocation: require('./kpi/temperatureByLocation'),
     AverageMeasureByLocation: require('./kpi/averageMeasureByLocation'),
     ThreeHighestTemperature: require('./kpi/threeHighestTemperature'),
+    AvgSensorsByHouseSize: require('./kpi/avgSensorsByHouseSize'),
 };
