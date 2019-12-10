@@ -47,34 +47,38 @@ export default class BarChartHorizontal2 extends PureComponent {
         super(props);
         this.state = {};
     }
-    componentDidMount() {
-        this.fetchData();
-    }
+    // componentDidMount() {
+    //     this.fetchData();
+    // }
 
-    async fetchData() {
-        try {
-            const { data } = await axios.get(`${API_URL}/averageMeasureByLocation`)
-            this.setState({ Data: data.data });
-            console.log('data', data.data);
+    // async fetchData() {
+    //     try {
+    //         const { data } = await axios.get(`${API_URL}/averageMeasureByLocation`)
+    //         this.setState({ Data: data.data });
+    //         console.log('data', data.data);
 
-        } catch (error) {
-            console.log('ERROR MESSAGE :', error.message);
-            console.log('ERROR :', error);
-        }
-    };
+    //     } catch (error) {
+    //         console.log('ERROR MESSAGE :', error.message);
+    //         console.log('ERROR :', error);
+    //     }
+    // };
 
     render() {
 
+        console.log('PROPS DATA BARCHART 2',this.props.data)
         return (
-            <div style={{ width: '90%', height: 250 }}>
+            <div style={{ width: '100%', height: 200 }}>
                 <ResponsiveContainer >
-                    <BarChart data={this.state.Data}>
+                    <BarChart data={this.props.data}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="location" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
                         <Bar dataKey="temperature" fill="#F6B772" />
+                        <Bar dataKey="humidity" fill="#33AEEF" />
+                        <Bar dataKey="airPollution" fill="#B965D2" />
+
                     </BarChart>
                 </ResponsiveContainer>
             </div>

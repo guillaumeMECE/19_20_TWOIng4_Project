@@ -20,10 +20,17 @@ const secure = async (req) => {
 /**
  * PROCESS :
  */
-const process = async (param) => {
+const process = async (params) => {
 
     try {
-        const res = await UserModel.findById(param.id).select({ 'location': true }).lean().exec();
+        let res;
+        if (params.id === 'null' || params.id === undefined) {
+            // Get the first one in the list
+            res = await UserModel.findOne().select({ 'location': true }).lean().exec();
+        } else {
+            // Get according to the id in params
+            res = await UserModel.findById(params.id).select({ 'location': true }).lean().exec();
+        }
         res.name = res.location;
 
         let avgMeasureTemp = 0;
@@ -84,15 +91,26 @@ const process = async (param) => {
             }
         }
 
-        res.temperature = Math.round((avgSensors1 / res.sensors.length) * 100) / 100;
+        // res.temperature = Math.round((avgSensors1 / res.sensors.length) * 100) / 100;
+        // avgSensors1 = 0;
+
+
+        // res.humidity = Math.round((avgSensors2 / res.sensors.length) * 100) / 100;
+        // avgSensors2 = 0;
+
+
+        // res.airPollution = Math.round((avgSensors3 / res.sensors.length) * 100) / 100;
+        // avgSensors3 = 0;
+        // delete res.sensors;
+        res.temperature = Math.round((avgSensors1 / res.sensors.length));
         avgSensors1 = 0;
 
 
-        res.humidity = Math.round((avgSensors2 / res.sensors.length) * 100) / 100;
+        res.humidity = Math.round((avgSensors2 / res.sensors.length));
         avgSensors2 = 0;
 
 
-        res.airPollution = Math.round((avgSensors3 / res.sensors.length) * 100) / 100;
+        res.airPollution = Math.round((avgSensors3 / res.sensors.length));
         avgSensors3 = 0;
         delete res.sensors;
 
